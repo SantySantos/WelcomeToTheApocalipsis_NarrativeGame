@@ -12,6 +12,7 @@ internal class program
     static void Main(string[] args)
     {
         Characters MainCharacter = OOP_PROJECT.Main_Character_Description.Switch.MainCharacter;
+
         var game = new Game();
         game.Add(new Refugee());
         game.Add(new MainStore());

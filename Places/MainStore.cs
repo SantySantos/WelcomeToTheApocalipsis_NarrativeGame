@@ -15,7 +15,6 @@ namespace OOP_PROJECT.Places
 {
     internal class MainStore : Place
     {
-        Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
 
         internal override string Description()
         {
@@ -32,6 +31,8 @@ What option do you pick(write the number)?";
         }
         private string GoldReturn(int price)
         {
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
+
             if (MainCharacter.gold - price > 0)
             {
                 MainCharacter.gold -= price;
