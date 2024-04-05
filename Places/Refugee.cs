@@ -9,7 +9,6 @@ namespace OOP_PROJECT.Places
 {
     internal class Refugee : Place
     {
-        Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
         internal override string Description()
         {
             Console.WriteLine();
@@ -26,6 +25,7 @@ write the place where you want to go";
         }
         internal override void MovingAround(string choice2)
         {
+        Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             switch (choice2)
             {
                 case "store":
@@ -41,9 +41,11 @@ write the place where you want to go";
                     Game.Transition<GunSmith>();
                     break;
                 case "1":
-                    Console.WriteLine(MainCharacter.Name);
-                    //Console.WriteLine(MainCharacter.hp);
-                    Console.WriteLine(MainCharacter.gold);
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine(MainCharacter.Name.ToUpper());
+                    Console.ResetColor();
+                    Console.WriteLine("HP: " + MainCharacter.hp);
+                    Console.WriteLine("GOLD: " + MainCharacter.gold);
                     break;
                 default:
                     Console.WriteLine("that's not a place, try again");
