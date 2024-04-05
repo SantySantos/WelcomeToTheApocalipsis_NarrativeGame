@@ -18,7 +18,7 @@ internal class program
         game.Add(new MainStore());
         game.Add(new Forest());
         game.Add(new Dungeon());
-        game.Add(new GunSmith());
+        game.Add(new BlackSmith());
 
         ContextStory contextStory = new ContextStory();
 

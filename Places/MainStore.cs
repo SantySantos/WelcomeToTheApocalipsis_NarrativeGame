@@ -33,7 +33,7 @@ What option do you pick(write the number)?";
         {
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
 
-            if (MainCharacter.gold - price > 0)
+            if (MainCharacter.gold - price >= 0)
             {
                 MainCharacter.gold -= price;
                 return "you have " + MainCharacter.gold.ToString() + "left";

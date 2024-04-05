@@ -13,9 +13,7 @@ namespace OOP_PROJECT.Main_Character_Description
         public override string Name { get; set; }
         public override double hp { get; set; }
         public override int gold { get; set; }
-        public override double agility { get; set; }
-        public override int armor { get; set; }
-        public override int speed { get; set; }
+        public override string Weapon { get; set; }
         public void GeneralMaleDescription()
         {
             Console.WriteLine();
@@ -24,9 +22,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Console.WriteLine($"Hello, I am Kairos");
             Console.WriteLine($"HP: 120");
             Console.WriteLine($"Gold : 100");
-            Console.WriteLine($"Agility: 80");
-            Console.WriteLine($"Armor: 60");
-            Console.WriteLine($"Speed: 40 ");
+            Console.WriteLine($"Weapon : None");
         }
     }
     internal class FemaleCharacters : Characters
@@ -34,9 +30,7 @@ namespace OOP_PROJECT.Main_Character_Description
         public override string Name { get; set; }
         public override double hp { get; set; }
         public override int gold { get; set; }
-        public override double agility { get; set; }
-        public override int armor { get; set; }
-        public override int speed { get; set; }
+        public override string  Weapon {get; set; }
         public void GeneralFemaleDescription()
         {
             Console.WriteLine();
@@ -45,9 +39,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Console.WriteLine($"Hello, I am Aria");
             Console.WriteLine($"HP: 100");
             Console.WriteLine($"Gold : 100");
-            Console.WriteLine($"Agility: 100");
-            Console.WriteLine($"Armor: 40");
-            Console.WriteLine($"Speed: 60");
+            Console.WriteLine($"Weapon : None");
 
         }
     }

@@ -19,9 +19,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Kairos.Name = "Kairos";
             Kairos.hp = 120;
             Kairos.gold = 100;
-            Kairos.agility = 80;
-            Kairos.armor = 60;
-            Kairos.speed = 40;
+            Kairos.Weapon = "None";
 
             return Kairos;
         }
@@ -32,9 +30,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Aria.Name = "Aria";
             Aria.hp = 100;
             Aria.gold = 100;
-            Aria.agility = 100;
-            Aria.armor = 40;
-            Aria.speed = 60;
+            Aria.Weapon = "None";
 
             return Aria;
         }

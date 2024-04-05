@@ -21,8 +21,7 @@ namespace OOP_PROJECT
 
 
         Characters MainCharacter = new Characters();
-        Switch choosechar = new Switch();
-        //MainStore GoingStore = new MainStore();
+        Switch choosechar = new Switch();       
         ContextStory ContextStory = new ContextStory();
 
         public void Selection(string choice)

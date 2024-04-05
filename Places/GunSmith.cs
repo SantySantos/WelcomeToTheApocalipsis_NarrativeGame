@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OOP_PROJECT.Places
 {
-    internal class GunSmith : Place
+    internal class BlackSmith : Place
     {
         internal override string Description()
         {

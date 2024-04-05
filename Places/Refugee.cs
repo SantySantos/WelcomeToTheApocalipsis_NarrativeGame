@@ -37,15 +37,19 @@ write the place where you want to go";
                 case "dungeon":
                     Game.Transition<Dungeon>();
                     break;
-                case "gunsmith":
-                    Game.Transition<GunSmith>();
+                case "blacksmith":
+                    Game.Transition<BlackSmith>();
                     break;
                 case "1":
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(MainCharacter.Name.ToUpper());
-                    Console.ResetColor();
+                    Console.ForegroundColor = ConsoleColor.Green;
                     Console.WriteLine("HP: " + MainCharacter.hp);
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("GOLD: " + MainCharacter.gold);
+                    Console.ForegroundColor = ConsoleColor.Blue;
+                    Console.WriteLine("WEAPON: " + MainCharacter.Weapon);
+                    Console.ResetColor();
                     break;
                 default:
                     Console.WriteLine("that's not a place, try again");

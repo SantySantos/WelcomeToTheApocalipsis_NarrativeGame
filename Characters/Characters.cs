@@ -12,9 +12,7 @@ namespace OOP_PROJECT.Main_Character_Description
         public virtual string Name { get; set; }
         public virtual double hp { get; set; }
         public virtual int gold { get; set; }
-        public virtual double agility { get; set; }
-        public virtual int armor { get; set; }
-        public virtual int speed { get; set; }
+        public virtual string Weapon {  get; set; }
 
     }
 }
