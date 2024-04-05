@@ -22,7 +22,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Console.WriteLine($"Hello, I am Kairos");
             Console.WriteLine($"HP: 120");
             Console.WriteLine($"Gold : 100");
-            Console.WriteLine($"Weapon : None");
+            Console.WriteLine($"Weapon : Axe (10 damage)");
         }
     }
     internal class FemaleCharacters : Characters
@@ -39,7 +39,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Console.WriteLine($"Hello, I am Aria");
             Console.WriteLine($"HP: 100");
             Console.WriteLine($"Gold : 100");
-            Console.WriteLine($"Weapon : None");
+            Console.WriteLine($"Weapon : Axe (10 damage)");
 
         }
     }

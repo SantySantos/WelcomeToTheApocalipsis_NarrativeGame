@@ -19,7 +19,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Kairos.Name = "Kairos";
             Kairos.hp = 120;
             Kairos.gold = 100;
-            Kairos.Weapon = "None";
+            Kairos.Weapon = "Axe (10 damage)";
 
             return Kairos;
         }
@@ -30,7 +30,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Aria.Name = "Aria";
             Aria.hp = 100;
             Aria.gold = 100;
-            Aria.Weapon = "None";
+            Aria.Weapon = "Axe (10 damage)";
 
             return Aria;
         }
