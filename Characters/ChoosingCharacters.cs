@@ -29,7 +29,7 @@ namespace OOP_PROJECT.Main_Character_Description
             FemaleCharacters Aria = new FemaleCharacters();
             Aria.Name = "Aria";
             Aria.hp = 100;
-            Aria.gold = 100;
+            Aria.gold = 120;
             Aria.Weapon = "Axe (10 damage)";
 
             return Aria;

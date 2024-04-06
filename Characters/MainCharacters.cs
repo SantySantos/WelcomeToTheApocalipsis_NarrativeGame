@@ -38,7 +38,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Console.WriteLine("-------------------------------");
             Console.WriteLine($"Hello, I am Aria");
             Console.WriteLine($"HP: 100");
-            Console.WriteLine($"Gold : 100");
+            Console.WriteLine($"Gold : 120");
             Console.WriteLine($"Weapon : Axe (10 damage)");
 
         }
