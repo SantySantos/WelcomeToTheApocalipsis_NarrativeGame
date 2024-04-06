@@ -20,16 +20,16 @@ namespace OOP_PROJECT.Places
         {
             return @"STORE
 1. Fruits, regenarates 5 hp - 10 gold
-2. Super fruits, regerates 20 hp - 40 gold
+2. Super fruits, regerates 20 hp - 38 gold
 3. Chocolate bar - more resistance in the forest - 2 seconds of invulneravility - 20 gold 
-4. 50/50 chance - 200 gold
+4. 70/30 chance - 200 gold
 5. go back to refugee
 
 
 What option do you pick(write the number)?";
 
         }
-        private string GoldReturn(int price)
+        public string GoldReturn(int price)
         {
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
 
@@ -51,7 +51,7 @@ What option do you pick(write the number)?";
                     GoldReturn(10);
                     break;
                 case "2":
-                    GoldReturn(40);
+                    GoldReturn(38);
                     break;
                 case "3":
                     GoldReturn(20);
