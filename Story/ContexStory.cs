@@ -13,7 +13,7 @@ namespace OOP_PROJECT.Story
         public void Story()
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("YEAR 4099");
+            Console.WriteLine("YEAR 3273");
             Console.ForegroundColor = ConsoleColor.Gray;
             Console.WriteLine();
             Console.WriteLine(@"Since Nova Genesis, the earth has been completely 
@@ -50,6 +50,14 @@ Open your eyes... Wake up...");
             Console.ReadKey();
             Console.Clear();
         }
+        //invadidos por bichos raros,
+        //Despredadores, dos especies diferentes
+        ///una especia mas pequena que otra
+        //la pequena quieren exterina, pero resiste la humanidad
+        // llega la especie mas grande del universo.
+        // ayudan a la humanidad contra la especia invasora
+        // exterminar a los menos poderosos, pero los mas poderosos abusan su poder
+        // las calaberas de la especie menos poderosa contiene una gema con la cual el herrero puede crear armas. 
 
 
     }
