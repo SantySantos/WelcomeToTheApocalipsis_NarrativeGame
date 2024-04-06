@@ -19,6 +19,13 @@ namespace OOP_PROJECT
         static bool isFinished;
         static string nextPlace = "";
 
+        internal bool Firstskull;
+        internal bool SecondSkull;
+
+        internal bool IsFirstSkullObtained() => Firstskull;
+        internal bool IsSecondSkullObtained() => SecondSkull;
+
+
 
         Characters MainCharacter = new Characters();
         Switch choosechar = new Switch();       
