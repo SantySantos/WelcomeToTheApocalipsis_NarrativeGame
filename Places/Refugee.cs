@@ -13,6 +13,7 @@ namespace OOP_PROJECT.Places
         {
             Console.WriteLine();
             return @"To the left, a humble [store] offers supplies. 
+To the right a [blacksmith] to get the most powerful weapons.
 Straight ahead, the [forest] whispers secrets. 
 To the right, the [dungeon] holds riches and horrors.
 Only the bravest reach the Crystals of Ages. 
@@ -57,6 +58,4 @@ write the place where you want to go";
             }
         }
     }
-
-
 }
