@@ -59,12 +59,22 @@ press any key to continue...");
 
         internal int CollectingGold()
         {
-            
-           ConsoleKeyInfo Spacebar = Console.ReadKey(true);
            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;          
+           
+           ConsoleKeyInfo Spacebar = Console.ReadKey(true);
            MainCharacter.gold -= 20;
             do
             {
+                Task.Delay(1000).Wait();
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.Write("Current HP: ");
+                Console.Write(MainCharacter.hp);
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write("Current GOLD: ");
+                Console.Write(MainCharacter.gold);
+                Console.ResetColor();
+                MainCharacter.hp -= 1;
                 if (Spacebar.Key == ConsoleKey.Spacebar)
                 {
                     count++;
@@ -86,7 +96,18 @@ press any key to continue...");
         }
         internal void PrintingWaitingTime()
         {
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.Write("Current HP: ");
+            Console.Write(MainCharacter.hp);
+            Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Current GOLD: ");
+            Console.Write(MainCharacter.gold);
+            Console.ResetColor();
             Console.WriteLine("Leaving the forest...");
+            Task.Delay(1000).Wait();
+            MainCharacter.hp -= 1;
             for (int i  = 0; i < 10; i++)
             {
                 Console.WriteLine(i);
