@@ -59,9 +59,9 @@ press any key to continue...");
 
         internal int CollectingGold()
         {
-           Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;          
-           
-           ConsoleKeyInfo Spacebar = Console.ReadKey(true);
+           Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
+            var game = new Game();
+            ConsoleKeyInfo Spacebar = Console.ReadKey(true);
            MainCharacter.gold -= 20;
             do
             {
@@ -87,7 +87,14 @@ press any key to continue...");
                     Spacebar = Console.ReadKey(false);
                     Task.Delay(100).Wait();
                 }
-            }while(Spacebar.Key != ConsoleKey.L);
+
+                if (MainCharacter.hp <= 0)
+                {
+                    game.IsGameOver();
+
+                }
+
+            } while(Spacebar.Key != ConsoleKey.L);
 
             
             PrintingWaitingTime();
@@ -96,6 +103,7 @@ press any key to continue...");
         }
         internal void PrintingWaitingTime()
         {
+            var game = new Game();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             Console.ForegroundColor = ConsoleColor.Green;
             Console.Write("Current HP: ");
@@ -112,7 +120,13 @@ press any key to continue...");
             {
                 Console.WriteLine(i);
                 Thread.Sleep(1000);
+                if(MainCharacter.hp <= 0)
+                {
+                    game.IsGameOver();
+                    
+                }
             }
+            
             Console.Clear();
             Game.Transition<Refugee>();
         }

@@ -30,10 +30,12 @@ Come, let's have a look and see what we can do for you
             if (MainCharacter.gold - price >= 0)
             {
                 MainCharacter.gold -= price;
+                Console.WriteLine("Gold remaining:" + MainCharacter.gold);
                 return "you have " + MainCharacter.gold.ToString() + "left";
             }
             else
             {
+                Console.WriteLine("Insuficient Gold");
                 return "You dont have enough Money";
             }
         }
@@ -44,7 +46,8 @@ Come, let's have a look and see what we can do for you
                 return true;
             }
             else 
-            { 
+            {
+                Console.WriteLine("Are you sure you have the two skulls? ");
                 return false;
             }
         }
@@ -62,10 +65,10 @@ Come, let's have a look and see what we can do for you
                 case "3":
                     GoldReturn(500);
                     break;
-                    case "4":
+                case "4":
                     GoldReturn(1500);
                     break;
-                    case "5":
+                case "5":
                     HaveSkulls(game.Firstskull, game.SecondSkull);
                     break; 
                 case "6":
