@@ -18,7 +18,7 @@ namespace OOP_PROJECT.Story
             Console.WriteLine();
             Console.WriteLine(@"Since Nova Genesis, the earth has been completely 
 consumed by the explosion. There is no life anymore;
-the trees are brown, the few survivors are depressed.
+the trees are grey, the few survivors are depressed.
 Some of them kill themselves, there is no hope.
 
 
