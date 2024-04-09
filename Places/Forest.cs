@@ -67,18 +67,17 @@ press any key to continue...");
             {
                 Task.Delay(1000).Wait();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Current HP: ");
-                Console.Write(MainCharacter.hp);
+                Console.Write("\rCurrent HP: " + MainCharacter.hp);
                 Console.WriteLine();
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write("Current GOLD: ");
-                Console.Write(MainCharacter.gold);
+                Console.Write("\rCurrent Gold: " + MainCharacter.gold);
                 Console.ResetColor();
+                
                 MainCharacter.hp -= 1;
                 if (Spacebar.Key == ConsoleKey.Spacebar)
                 {
                     count++;
-                    if (count == 10)
+                    if (count == 4)
                     {
                         MainCharacter.gold += 2;
                         Console.WriteLine("Gold +2"); 
@@ -88,12 +87,8 @@ press any key to continue...");
                     Task.Delay(100).Wait();
                 }
 
-                if (MainCharacter.hp <= 0)
-                {
-                    game.IsGameOver();
-
-                }
-
+                GameDone();
+                 
             } while(Spacebar.Key != ConsoleKey.L);
 
             
@@ -106,12 +101,10 @@ press any key to continue...");
             var game = new Game();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("Current HP: ");
-            Console.Write(MainCharacter.hp);
+            Console.Write("\rCurrent HP: " + MainCharacter.hp + "    "); ;
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("Current GOLD: ");
-            Console.Write(MainCharacter.gold);
+            Console.Write("\rCurrent Gold: " + MainCharacter.gold + "    ");
             Console.ResetColor();
             Console.WriteLine("Leaving the forest...");
             Task.Delay(1000).Wait();
@@ -120,15 +113,21 @@ press any key to continue...");
             {
                 Console.WriteLine(i);
                 Thread.Sleep(1000);
-                if(MainCharacter.hp <= 0)
-                {
-                    game.IsGameOver();
-                    
-                }
-            }
+               GameDone();
+            }            
             
             Console.Clear();
             Game.Transition<Refugee>();
+        }
+        internal void GameDone()
+        {
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
+            var game = new Game();
+            if (MainCharacter.hp <= 0)
+            {
+                game.IsGameOver();
+
+            }
         }
     }
 }
