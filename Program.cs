@@ -2,9 +2,11 @@
 using OOP_PROJECT.Main_Character_Description;
 using OOP_PROJECT.Places;
 using OOP_PROJECT.Story;
+using System.Runtime.CompilerServices;
 using System.Runtime.ExceptionServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
+using System.Threading.Tasks;
 
 internal class program
 {
@@ -33,7 +35,6 @@ internal class program
             DescriptionChar.CharacterDescription();
             string choice = Console.ReadLine().ToLower() ?? "";
             game.Selection(choice);
-
         }
 
         contextStory.FirstWhisper();
@@ -46,7 +47,11 @@ internal class program
             game.MovingAround(choice2);
         }
         Console.Clear();
+        Console.ForegroundColor = ConsoleColor.Red;
+        Console.WriteLine("Thanks for playing the game, I hope you enjoyed it!!");
+        Thread.Sleep(5000);
+        Console.ResetColor();
+        Console.Clear();
         Console.WriteLine("By: Santiago Santos");
-
     }
 }
