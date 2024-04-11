@@ -44,11 +44,12 @@ constant damage, these are the rules:
 
 1. You will need to pay 20 gold to join the forest
 2. It wil take you 10 seconds without being able to do anything to leave the forest
-3. You might receive random hits wich damage 20HP 
-4. Press the spacebar as fast as you can to earn more gold!
-5. You might Find SKULLS, it is not easy tho
-6. Press L to leave the forest.
+3. You might Find SKULLS, it is not easy tho
+4. Press ENTER to start the forest.
+5. Press SPACEBAR to leave the forest.
 6. If you die, game is over.
+
+ENJOY, AND HAVE GOOD TIMING :D
 
 HAVE FUN
 
@@ -59,75 +60,63 @@ press any key to continue...");
 
         internal int CollectingGold()
         {
-           Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
-            var game = new Game();
-            ConsoleKeyInfo Spacebar = Console.ReadKey(true);
-           MainCharacter.gold -= 20;
-            do
+
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
+            MainCharacter.gold -= 20;
+            ConsoleKeyInfo KeyInfo = Console.ReadKey(true);
+            while (true)
             {
-                Task.Delay(1000).Wait();
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("\rCurrent HP: " + MainCharacter.hp);
-                Console.WriteLine();
+                Console.Write("Current HP: " + MainCharacter.hp + "         ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write("\rCurrent Gold: " + MainCharacter.gold);
+                Console.Write("Current Gold: " + MainCharacter.gold);
+                Console.WriteLine();
                 Console.ResetColor();
-                
-                MainCharacter.hp -= 1;
-                if (Spacebar.Key == ConsoleKey.Spacebar)
+                Thread.Sleep(1500);
+                MainCharacter.gold += 3;
+                FinishingInTheForest();
+                if (KeyInfo.Key == ConsoleKey.Spacebar)
                 {
-                    count++;
-                    if (count == 4)
-                    {
-                        MainCharacter.gold += 2;
-                        Console.WriteLine("Gold +2"); 
-                        count = 0;
-                    }
-                    Spacebar = Console.ReadKey(false);
-                    Task.Delay(100).Wait();
+                    break;
                 }
-
-                GameDone();
-                 
-            } while(Spacebar.Key != ConsoleKey.L);
-
-            
+                else
+                {
+                    continue;
+                }
+            }
             PrintingWaitingTime();
                    
             return MainCharacter.gold;
         }
         internal void PrintingWaitingTime()
         {
-            var game = new Game();
-            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.Write("\rCurrent HP: " + MainCharacter.hp + "    "); ;
-            Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.Write("\rCurrent Gold: " + MainCharacter.gold + "    ");
-            Console.ResetColor();
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;           
             Console.WriteLine("Leaving the forest...");
-            Task.Delay(1000).Wait();
             MainCharacter.hp -= 1;
             for (int i  = 0; i < 10; i++)
             {
-                Console.WriteLine(i);
+                Console.WriteLine(i + "     Current HP:"  + MainCharacter.hp);
+                if (MainCharacter.hp <= 0)
+                {
+                    Game.Finish();
+                }
                 Thread.Sleep(1000);
-               GameDone();
-            }            
-            
+            }                      
             Console.Clear();
             Game.Transition<Refugee>();
         }
-        internal void GameDone()
-        {
+       public async void FinishingInTheForest()
+       {
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
-            var game = new Game();
             if (MainCharacter.hp <= 0)
             {
-                game.IsGameOver();
-
+                Game.Finish();                
             }
-        }
+            else
+            {
+                MainCharacter.hp -= 1;
+                await Task.Delay(500);
+            }
+       }
     }
 }
