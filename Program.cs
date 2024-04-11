@@ -38,13 +38,15 @@ internal class program
 
         contextStory.FirstWhisper();
 
-        while (!game.IsGameOver())
+        while (!Game.isFinished)
         {
             Console.WriteLine(game.CurrentPlaceDescription);
             string choice2 = Console.ReadLine().ToLower() ?? "";
             Console.Clear();
             game.MovingAround(choice2);
         }
+        Console.Clear();
+        Console.WriteLine("By: Santiago Santos");
 
     }
 }
