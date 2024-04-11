@@ -17,9 +17,9 @@ In need of a repair, or perhaps something new? Whatever it is, you've come to th
 Come, let's have a look and see what we can do for you
 
 1.Rusted machete - 5 gold
-2.Shockwave Grenade - 50 gold
-3.Plasma Repeater - 500 gold
-4.Electro-Katana - 1500 gold
+2.Shockwave Grenade - 150 gold
+3.Plasma Repeater - 1500 gold
+4.Electro-Katana - 3000 gold
 5.EPRK - 2 skulls 
 6.Back to Refugee";
         }
@@ -60,13 +60,13 @@ Come, let's have a look and see what we can do for you
                     GoldReturn(5);
                     break;
                 case "2":
-                    GoldReturn(50);
+                    GoldReturn(150);
                     break;
                 case "3":
-                    GoldReturn(500);
+                    GoldReturn(1500);
                     break;
                 case "4":
-                    GoldReturn(1500);
+                    GoldReturn(3000);
                     break;
                 case "5":
                     HaveSkulls(game.Firstskull, game.SecondSkull);
