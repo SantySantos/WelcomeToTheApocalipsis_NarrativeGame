@@ -16,7 +16,7 @@ namespace OOP_PROJECT
         List<Place> places = new List<Place>();
         Place currentPlace;
         internal bool IsGameOver() => isFinished;
-        static bool isFinished;
+        public static bool isFinished;
         static string nextPlace = "";
 
         internal bool Firstskull;
@@ -55,7 +55,7 @@ namespace OOP_PROJECT
         {
             nextPlace = typeof(T).Name;
         }
-        internal static void Finish()
+        public static void Finish()
         {
             isFinished = true;
         }
