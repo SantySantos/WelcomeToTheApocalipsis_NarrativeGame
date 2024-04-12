@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 
 namespace OOP_PROJECT.Places
-{
+{   
     internal class Forest : Place
     {
         private static int count = 0;
@@ -60,29 +60,30 @@ press any key to continue...");
 
         internal int CollectingGold()
         {
-
+            int counter = 0;
+            Random random = new Random();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             MainCharacter.gold -= 20;
             ConsoleKeyInfo KeyInfo = Console.ReadKey(true);
-            while (true)
+            while (KeyInfo.Key != ConsoleKey.Spacebar)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
                 Console.Write("Current HP: " + MainCharacter.hp + "         ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("Current Gold: " + MainCharacter.gold);
                 Console.WriteLine();
-                Console.ResetColor();
-                Thread.Sleep(1500);
-                MainCharacter.gold += 3;
-                FinishingInTheForest();
-                if (KeyInfo.Key == ConsoleKey.Spacebar)
+                Console.ResetColor();    
+                Thread.Sleep(1000);
+                if (random.Next(200) == 25)
                 {
-                    break;
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("              +1 SKULL        ");
+                    Console.ResetColor();
+                    counter++;
                 }
-                else
-                {
-                    continue;
-                }
+                MainCharacter.gold += 10;
+                FinishingInTheForest();   
+               
             }
             PrintingWaitingTime();
                    

@@ -15,9 +15,13 @@ namespace OOP_PROJECT.Places
 {
     internal class MainStore : Place
     {
-
+        
         internal override string Description()
         {
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Gold:" + MainCharacter.gold);
+            Console.ResetColor();
             return @"STORE
 1. Fruits, regenarates 5 hp - 10 gold
 2. Super fruits, regerates 20 hp - 38 gold
@@ -49,24 +53,33 @@ What option do you pick(write the number)?";
             {
                 case "1":
                     GoldReturn(10);
+                    Console.Clear();
+                    Game.Transition<MainStore>();
                     break;
                 case "2":
                     GoldReturn(38);
+                    Console.Clear();
+                    Game.Transition<MainStore>();
                     break;
                 case "3":
                     GoldReturn(20);
+                    Console.Clear();
+                    Game.Transition<MainStore>();
                     break;
                 case "4":
                     GoldReturn(200);
+                    Console.Clear();
+                    Game.Transition<MainStore>();
                     break;
                 case "5":
                     Game.Transition<Refugee>();
+
                     break;
                 default:
                     Console.WriteLine("Choose a valid option");
                     break;
             }
-
+           
         }
     }
 }
