@@ -1,10 +1,13 @@
 ﻿using OOP_PROJECT.Main_Character_Description;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Transactions;
 using System.Windows;
 
 namespace OOP_PROJECT.Places
@@ -33,6 +36,7 @@ namespace OOP_PROJECT.Places
                     break;
             }
         }
+
         internal void Instructions()
         {
             Console.ForegroundColor = ConsoleColor.Red;
@@ -43,7 +47,7 @@ collect gold to be able to buy things in the store, while you are there, you wil
 constant damage, these are the rules:
 
 1. You will need to pay 20 gold to join the forest
-2. It wil take you 10 seconds without being able to do anything to leave the forest
+2. It wil take you 5 seconds without being able to do anything to leave the forest
 3. You might Find SKULLS, it is not easy tho
 4. Press ENTER to start the forest.
 5. Press SPACEBAR to leave the forest.
@@ -58,66 +62,105 @@ press any key to continue...");
             Console.Clear();
         }
 
+        public int askingGold()
+        {
+            Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
+            int goldy;
+            while(true) {
+                while (true)
+                {
+                    Console.WriteLine("Please insert how much gold you want to gain, remember, if your Hp is below 0 or 0 you are going to die");
+                    string gain = Console.ReadLine();
+                    if (int.TryParse(gain, out goldy))
+                    {
+                        Console.Clear();
+                        break;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Please type a number");
+                        Console.ResetColor();
+                    }                   
+                }
+                Console.Write("You will collect: ");
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.Write(goldy);
+                Console.ResetColor();
+                Console.Write(" gold, and you will lose: ");
+                Console.ForegroundColor= ConsoleColor.Green;
+                Console.Write(goldy/10);
+                Console.ResetColor();
+                Console.Write(" HP, are you sure to proceed?");
+                Console.WriteLine();
+                Console.WriteLine("Press [1] to start farming or [2] to select again the gold you want to farm");
+                Console.WriteLine();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("REMINDER: YOU ALSO WILL NEED TO PAY 20 GOLD AND WAIT 5 SECS TO LEAVE THE FOREST");
+                Console.ResetColor();
+                int answer = int.Parse(Console.ReadLine());
+                if (answer == 1)
+                {
+                    return goldy;
+                }
+                else { continue; }              
+            }
+        }
+
         internal int CollectingGold()
         {
-            int counter = 0;
+            
             Random random = new Random();
-            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
-            MainCharacter.gold -= 20;
-            ConsoleKeyInfo KeyInfo = Console.ReadKey(true);
-            while (KeyInfo.Key != ConsoleKey.Spacebar)
+            Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
+            int WishedGold = askingGold(); 
+            mainCharacter.gold -= 20;
+
+            for(int i = 0; i < WishedGold; i = i + 10)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.Write("Current HP: " + MainCharacter.hp + "         ");
+                Console.Write("Current HP: " + mainCharacter.hp + "         ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.Write("Current Gold: " + MainCharacter.gold);
+                Console.Write("Current Gold: " + mainCharacter.gold);
                 Console.WriteLine();
-                Console.ResetColor();    
+                Console.ResetColor();
                 Thread.Sleep(1000);
+                mainCharacter.gold += 10;
+                mainCharacter.hp -= 1;
+
                 if (random.Next(200) == 25)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("              +1 SKULL        ");
+                    Console.WriteLine("+1 SKULL");
                     Console.ResetColor();
-                    counter++;
                 }
-                MainCharacter.gold += 10;
-                FinishingInTheForest();   
-               
+                if (mainCharacter.hp <= 0)
+                {
+                    Game.Finish();
+                    break;
+                }
             }
+
             PrintingWaitingTime();
-                   
-            return MainCharacter.gold;
+            return mainCharacter.gold;
         }
         internal void PrintingWaitingTime()
         {
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;           
             Console.WriteLine("Leaving the forest...");
             MainCharacter.hp -= 1;
-            for (int i  = 0; i < 10; i++)
+            for (int i  = 0; i < 5; i++)
             {
-                Console.WriteLine(i + "     Current HP:"  + MainCharacter.hp);
+                Console.WriteLine(i + "        Current HP:"  + MainCharacter.hp);
                 if (MainCharacter.hp <= 0)
                 {
                     Game.Finish();
+                    break;
                 }
                 Thread.Sleep(1000);
             }                      
             Console.Clear();
             Game.Transition<Refugee>();
         }
-       public async void FinishingInTheForest()
-       {
-            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
-            if (MainCharacter.hp <= 0)
-            {
-                Game.Finish();                
-            }
-            else
-            {
-                MainCharacter.hp -= 1;
-                await Task.Delay(500);
-            }
-       }
+
     }
 }
