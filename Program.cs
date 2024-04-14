@@ -7,6 +7,7 @@ using System.Runtime.ExceptionServices;
 using System.Security.Cryptography.X509Certificates;
 using System.Xml.Serialization;
 using System.Threading.Tasks;
+using FINAL_PROJECT_GV5.Places;
 
 internal class program
 {
@@ -21,6 +22,7 @@ internal class program
         game.Add(new Forest());
         game.Add(new Dungeon());    
         game.Add(new BlackSmith());
+        game.Add(new Inventory());
 
         ContextStory contextStory = new ContextStory();
 
