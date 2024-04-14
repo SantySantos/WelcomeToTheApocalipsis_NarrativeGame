@@ -13,6 +13,14 @@ using System.Net.Security;
 
 namespace OOP_PROJECT.Places
 {
+
+    enum Store
+    {
+        Fruits,
+        SuperFrutis,
+        ChocolateBar,
+        LuckyShot,
+    }
     internal class MainStore : Place
     {
         
