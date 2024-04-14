@@ -1,4 +1,5 @@
-﻿using OOP_PROJECT.Main_Character_Description;
+﻿using FINAL_PROJECT_GV5.Characters;
+using OOP_PROJECT.Main_Character_Description;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ To the right a [blacksmith] to get the most powerful weapons.
 Straight ahead, the [forest] whispers secrets. 
 To the right, the [dungeon] holds riches and horrors.
 Only the bravest reach the Crystals of Ages. 
-The refuge is a place of respite. Write [1] for stats.
+The refuge is a place of respite. Write [1] for stats and [2] for Inventory.
 
 
 
@@ -52,6 +53,10 @@ write the place where you want to go";
                     Console.WriteLine("WEAPON: " + MainCharacter.Weapon);
                     Console.ResetColor();
                     break;
+                case "2":
+                    Game.Transition<Inventory>();
+                    break;
+                
                 default:
                     Console.WriteLine("that's not a place, try again");
                     break;
