@@ -28,7 +28,8 @@ namespace OOP_PROJECT.Places
             return @"STORE
 1. Fruits, regenarates 5 hp - 10 gold
 2. Super fruits, regerates 20 hp - 38 gold
-3. go back to refugee
+3. Betting Coins, bet an amount of money, double it or lose it all - 20 gold
+4. go back to refugee
 
 
 What option do you pick(write the number)?";
@@ -57,7 +58,6 @@ What option do you pick(write the number)?";
                     
                     if(GoldReturn(10) == true)
                     {
-                        GoldReturn(10);
                         inventory.BuyingFruits();
                     }
                     else if (GoldReturn(10) == false)
@@ -70,7 +70,6 @@ What option do you pick(write the number)?";
                 case "2":
                     if (GoldReturn(38) == true)
                     {
-                        GoldReturn(38);
                         inventory.BuyingSuperFruits();
                     }
                     else if(GoldReturn(38) == false)
@@ -82,10 +81,22 @@ What option do you pick(write the number)?";
                     Game.Transition<MainStore>();
                     break;
                 case "3":
-                    GoldReturn(20);
+                    if (GoldReturn(20) == true)
+                    {
+                        inventory.BettingCoins();
+                    }
+                    else if (GoldReturn(20) == false)
+                    {
+                        Console.WriteLine("You dont have enough Money");
+                    }
+                    Console.Clear();
+                    Game.Transition<MainStore>();
+                    break;
+                case "4":
                     Console.Clear();
                     Game.Transition<Refugee>();
                     break;
+
                 default:
                     Console.WriteLine("Choose a valid option");
                     break;
