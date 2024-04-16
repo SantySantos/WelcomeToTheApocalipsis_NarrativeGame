@@ -10,7 +10,10 @@ namespace OOP_PROJECT.Places
     {
         internal override string Description()
         {
-            throw new NotImplementedException();
+          
+
+
+            return "";
         }
         internal override void MovingAround(string choice2)
         {
