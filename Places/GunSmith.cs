@@ -2,11 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace OOP_PROJECT.Places
 {
+    enum Weapons
+    {
+        RustedMachete = 5,
+        PlasmaRepeater = 150,
+        ElectroKatana = 400,    
+        EPRK = 800,
+        InterstellarHypernovaCosmicDevastatorOfUniversalDestruction = 100000
+    }
     internal class BlackSmith : Place
     {
 
@@ -17,35 +26,38 @@ In need of a repair, or perhaps something new? Whatever it is, you've come to th
 Come, let's have a look and see what we can do for you
 
 1.Rusted machete - 5 gold
-2.Shockwave Grenade - 150 gold
-3.Plasma Repeater - 1500 gold
-4.Electro-Katana - 3000 gold
-5.EPRK - 2 skulls 
+2.Plasma Repeater - 1500 gold
+3.Electro-Katana - 3000 gold
+4.EPRK - 2 skulls 
+5. Interstellar Hypernova Cosmic Devastator of Universal Destruction - 100000
 6.Back to Refugee";
         }
-        public string GoldReturn(int price)
+        public bool GoldReturn(int price)
         {
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
 
             if (MainCharacter.gold - price >= 0)
             {
                 MainCharacter.gold -= price;
+                Console.ForegroundColor= ConsoleColor.Yellow;
                 Console.WriteLine("Gold remaining:" + MainCharacter.gold);
-                return "you have " + MainCharacter.gold.ToString() + "left";
+                Console.ResetColor();
+                Console.WriteLine();
+                return true;
             }
             else
             {
                 Console.WriteLine("Insuficient Gold");
-                return "You dont have enough Money";
+                return false;
             }
         }
         public bool HaveSkulls(bool OneSkull, bool TwoSkull)
         {
-            if(OneSkull == true && TwoSkull == true) 
+            if (OneSkull == true && TwoSkull == true)
             {
                 return true;
             }
-            else 
+            else
             {
                 Console.WriteLine("Are you sure you have the two skulls? ");
                 return false;
@@ -53,24 +65,46 @@ Come, let's have a look and see what we can do for you
         }
         internal override void MovingAround(string choice2)
         {
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             var game = new Game();
             switch (choice2)
             {
                 case "1":
-                    GoldReturn(5);
+                    
+                    if (GoldReturn(5) == true)
+                    {
+                        
+                        MainCharacter.Weapon = Weapons.RustedMachete.ToString();
+                    }
+                    else if (GoldReturn(5) == false) { MainCharacter.Weapon = MainCharacter.Weapon; }
                     break;
                 case "2":
-                    GoldReturn(150);
+                    if (GoldReturn(1500) == true)
+                    {
+                        GoldReturn(1500);
+                        MainCharacter.Weapon = Weapons.PlasmaRepeater.ToString();
+                    }
+                    else if(GoldReturn(1500) == false) { MainCharacter.Weapon = MainCharacter.Weapon; }
                     break;
                 case "3":
-                    GoldReturn(1500);
+                    if (GoldReturn(3000) == true)
+                    {
+                        GoldReturn(3000);
+                        MainCharacter.Weapon = Weapons.ElectroKatana.ToString();
+                    }
+                    else if (GoldReturn(3000) == false) { MainCharacter.Weapon = MainCharacter.Weapon; }
                     break;
                 case "4":
-                    GoldReturn(3000);
+                   
                     break;
                 case "5":
-                    HaveSkulls(game.Firstskull, game.SecondSkull);
-                    break; 
+                    if (GoldReturn(100000) == true)
+                    {
+                        GoldReturn(100000);
+                        MainCharacter.Weapon = Weapons.InterstellarHypernovaCosmicDevastatorOfUniversalDestruction.ToString();
+                    }
+                    else if (GoldReturn(3000) == false) { MainCharacter.Weapon = MainCharacter.Weapon; }
+                    break;
                 case "6":
                     Game.Transition<Refugee>();
                     break;
@@ -79,5 +113,12 @@ Come, let's have a look and see what we can do for you
                     break;
             }
         }
+        public virtual double Axe()
+        {
+            return 10;
+        }
+
     }
+    
 }
+
