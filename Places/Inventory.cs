@@ -8,6 +8,7 @@ using OOP_PROJECT.Main_Character_Description;
 using System.Threading.Channels;
 using System;
 using System.ComponentModel.Design;
+using System.Transactions;
 
 namespace FINAL_PROJECT_GV5.Places
 {
@@ -87,12 +88,18 @@ namespace FINAL_PROJECT_GV5.Places
         public double UsingFruits()
         {
             Characters MainCharacter = Switch.MainCharacter;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Current HP: " + MainCharacter.hp );
+            Console.ResetColor();
             Fruits -= 1; 
             return MainCharacter.hp += 5;
         }
         public double UsingSuperFruits() 
         {
             Characters MainCharacter = Switch.MainCharacter;
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Current HP: " + MainCharacter.hp);
+            Console.ResetColor();
             SuperFruits -= 1;
             return MainCharacter.hp += 38;
         }
@@ -124,7 +131,10 @@ namespace FINAL_PROJECT_GV5.Places
             Console.ResetColor();
             while (true)
             {
-                if(MainCharacter.gold <= 0) 
+                Console.ForegroundColor= ConsoleColor.Yellow;
+                Console.WriteLine("Currento Gold: " + MainCharacter.gold);
+                Console.ResetColor();
+                if (MainCharacter.gold <= 0) 
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("You dont have money to bet");
