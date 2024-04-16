@@ -70,7 +70,7 @@ press any key to continue...");
             while(true) {
                 while (true)
                 {
-                    Console.WriteLine("Please insert how much gold you want to gain, remember, if your Hp is below 0 or 0 you are going to die");
+                    Console.WriteLine("Please insert how much gold you want to gain, remember, if your Hp is reaches 0 you are going to die");
                     string gain = Console.ReadLine();
                     if (int.TryParse(gain, out goldy))
                     {
@@ -127,7 +127,7 @@ press any key to continue...");
                 mainCharacter.gold += 10;
                 mainCharacter.hp -= 1;
 
-                if (random.Next(200) == 25)
+                if (random.Next(1, 200) == 25)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("+1 SKULL");
@@ -149,9 +149,9 @@ press any key to continue...");
             var story = new ContextStory();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;           
             Console.WriteLine("Leaving the forest...");
-            MainCharacter.hp -= 1;
             for (int i  = 0; i < 5; i++)
             {
+                MainCharacter.hp -= 1;
                 Console.WriteLine(i + "        Current HP:"  + MainCharacter.hp);
                 if (MainCharacter.hp <= 0)
                 {
