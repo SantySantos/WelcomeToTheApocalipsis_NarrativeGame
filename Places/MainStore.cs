@@ -10,22 +10,17 @@ using System.Threading.Tasks;
 using OOP_PROJECT;
 using OOP_PROJECT.Main_Character_Description;
 using System.Net.Security;
+using FINAL_PROJECT_GV5.Places;
 
 namespace OOP_PROJECT.Places
 {
 
-    enum Store
-    {
-        Fruits,
-        SuperFrutis,
-        ChocolateBar,
-        LuckyShot,
-    }
     internal class MainStore : Place
     {
         
         internal override string Description()
         {
+            
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Gold:" + MainCharacter.gold);
@@ -33,55 +28,63 @@ namespace OOP_PROJECT.Places
             return @"STORE
 1. Fruits, regenarates 5 hp - 10 gold
 2. Super fruits, regerates 20 hp - 38 gold
-3. Chocolate bar - more resistance in the forest - 2 seconds of invulneravility - 20 gold 
-4. 70/30 chance - 200 gold
-5. go back to refugee
+3. go back to refugee
 
 
 What option do you pick(write the number)?";
 
         }
-        public string GoldReturn(int price)
+        public bool GoldReturn(int price)
         {
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
 
             if (MainCharacter.gold - price >= 0)
             {
                 MainCharacter.gold -= price;
-                return "you have " + MainCharacter.gold.ToString() + "left";
+                return true;
             }
             else
             {
-                return "You dont have enough Money";
+                return false;
             }
         }
         internal override void MovingAround(string choice2)
         {
+            var inventory = new Inventory();
             switch (choice2)
             {
                 case "1":
-                    GoldReturn(10);
+                    
+                    if(GoldReturn(10) == true)
+                    {
+                        GoldReturn(10);
+                        inventory.BuyingFruits();
+                    }
+                    else if (GoldReturn(10) == false)
+                    {
+                        Console.WriteLine("You dont have enough Money");
+                    }
                     Console.Clear();
                     Game.Transition<MainStore>();
                     break;
                 case "2":
-                    GoldReturn(38);
+                    if (GoldReturn(38) == true)
+                    {
+                        GoldReturn(38);
+                        inventory.BuyingSuperFruits();
+                    }
+                    else if(GoldReturn(38) == false)
+                    {
+                        Console.WriteLine("You dont have enough Money");
+                    }
+
                     Console.Clear();
                     Game.Transition<MainStore>();
                     break;
                 case "3":
                     GoldReturn(20);
                     Console.Clear();
-                    Game.Transition<MainStore>();
-                    break;
-                case "4":
-                    GoldReturn(200);
-                    Console.Clear();
-                    Game.Transition<MainStore>();
-                    break;
-                case "5":
                     Game.Transition<Refugee>();
-
                     break;
                 default:
                     Console.WriteLine("Choose a valid option");
