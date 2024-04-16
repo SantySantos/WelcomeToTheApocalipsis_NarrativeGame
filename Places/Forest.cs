@@ -1,4 +1,5 @@
 ﻿using OOP_PROJECT.Main_Character_Description;
+using OOP_PROJECT.Story;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -109,7 +110,6 @@ press any key to continue...");
 
         internal int CollectingGold()
         {
-            
             Random random = new Random();
             Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
             int WishedGold = askingGold(); 
@@ -135,6 +135,7 @@ press any key to continue...");
                 }
                 if (mainCharacter.hp <= 0)
                 {
+                    Console.Clear();
                     Game.Finish();
                     break;
                 }
@@ -145,6 +146,7 @@ press any key to continue...");
         }
         internal void PrintingWaitingTime()
         {
+            var story = new ContextStory();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;           
             Console.WriteLine("Leaving the forest...");
             MainCharacter.hp -= 1;
@@ -153,6 +155,8 @@ press any key to continue...");
                 Console.WriteLine(i + "        Current HP:"  + MainCharacter.hp);
                 if (MainCharacter.hp <= 0)
                 {
+                    Console.Clear();
+                    story.WarriorLosses();
                     Game.Finish();
                     break;
                 }

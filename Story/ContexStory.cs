@@ -59,6 +59,19 @@ Open your eyes... Wake up...");
         // exterminar a los menos poderosos, pero los mas poderosos abusan su poder
         // las calaberas de la especie menos poderosa contiene una gema con la cual el herrero puede crear armas. 
 
-
+        public void WarriorLosses()
+        {
+            Console.WriteLine("As the warrior's health dwindles to nothing, a sense of desperation fills the air. ");
+            Console.WriteLine("Despite their best efforts, the warrior collapses, exhausted and defeated.");
+            Console.WriteLine(" With the warrior's demise, the last hope for humanity fades away. ");
+            Console.WriteLine("As time passes, life on Earth diminishes, eventually leading to a world devoid of any signs of life, ");
+            Console.WriteLine("symbolizing the ultimate failure to save humanity.");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("END");
+            Console.ReadKey();
+            Console.Clear();
+        }
     }
 }
