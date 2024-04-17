@@ -62,6 +62,7 @@ What option do you pick(write the number)?";
             if (MainCharacter.gold - price >= 0)
             {
                 MainCharacter.gold -= price;
+                SucessfulPurchase();
                 return true;
             }
             else
@@ -78,8 +79,7 @@ What option do you pick(write the number)?";
                     
                     if(GoldReturn(10) == true)
                     {
-                        inventory.BuyingFruits();
-                        SucessfulPurchase();
+                        inventory.BuyingFruits();                       
                         
                     }
                     else if (GoldReturn(10) == false)
@@ -92,14 +92,14 @@ What option do you pick(write the number)?";
                     if (GoldReturn(38) == true)
                     {
                         inventory.BuyingSuperFruits();
-                        SucessfulPurchase();
+                       
                        
                         
                     }
                     else if(GoldReturn(38) == false)
                     {
                         Console.WriteLine("You dont have enough Money");
-                        SucessfulPurchase();
+                        
                     }
 
                     break;

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace OOP_PROJECT.Places
 {
@@ -21,6 +22,7 @@ namespace OOP_PROJECT.Places
         public int WeaponDamage = 10;
         internal override string Description()
         {
+
             return @"Ah, welcome, welcome! What brings you to my forge today?
 In need of a repair, or perhaps something new? Whatever it is, you've come to the right place.
 Come, let's have a look and see what we can do for you
@@ -33,7 +35,24 @@ Come, let's have a look and see what we can do for you
 6. Back to Refugee";
         }
 
-
+        internal void SuccessfulPurchase()
+        {
+            Console.WriteLine("Ah, welcome, welcome! What brings you to my forge today?");
+            Console.WriteLine("In need of a repair, or perhaps something new? Whatever it is, you've come to the right place.");
+            Console.WriteLine("Come, let's have a look and see what we can do for you");
+            Console.WriteLine();
+            Console.WriteLine("1. Rusted- Machete (1 damage) - 5 gold");
+            Console.WriteLine("2. Plasma-Repeater (100 damage) - 1500 gold");
+            Console.WriteLine("3. Electro-Katana (200 damage) - 3000 gold");
+            Console.WriteLine("4. EPRK (400 damage) - 1 skulls ");
+            Console.WriteLine("5. Interstellar-Hypernova-Cosmic-Devastator-of-Universal-Destruction (100000 damage) - 100000");
+            Console.WriteLine("6. Back to Refugee");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Sucessful Purchase !!!");
+            Console.ResetColor();
+            Thread.Sleep(1000);
+            Console.Clear();
+        }
         public bool GoldReturn(int price)
         {
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
@@ -41,10 +60,10 @@ Come, let's have a look and see what we can do for you
             if (MainCharacter.gold - price >= 0)
             {
                 MainCharacter.gold -= price;
-                Console.ForegroundColor= ConsoleColor.Yellow;
+                SuccessfulPurchase();
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.WriteLine("Gold remaining:" + MainCharacter.gold);
                 Console.ResetColor();
-                Console.WriteLine();
                 return true;
             }
             else
@@ -95,6 +114,7 @@ Come, let's have a look and see what we can do for you
 
                         MainCharacter.Weapon = Weapons.EPRK.ToString();
                         WeaponDamage = (int)Weapons.EPRK;
+                        SuccessfulPurchase();
 
                     }
                     else

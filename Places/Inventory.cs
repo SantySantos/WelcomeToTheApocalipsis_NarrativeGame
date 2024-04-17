@@ -31,7 +31,11 @@ namespace FINAL_PROJECT_GV5.Places
             Console.ResetColor();
             Console.WriteLine("1. Fruits: " + Fruits);
             Console.WriteLine("2. Super Fruits: " + SuperFruits);
-            Console.WriteLine("3. Coins: " + Coins);
+            Console.WriteLine("3. Coins: " + Coins);    
+            if(Game.Firstskull == true)
+            {
+                Console.WriteLine("4. 1 SKULL");
+            }
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("What would you like to use?");
@@ -51,7 +55,7 @@ namespace FINAL_PROJECT_GV5.Places
                     {
                         UsingFruits();
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("You healed !!  Current HP: " +  MainCharacter.hp);
+                        Console.WriteLine("You healed !!  Current HP: " +  MainCharacter.hp); Console.WriteLine();
                         Console.ResetColor();
                     }
                     else
@@ -64,7 +68,7 @@ namespace FINAL_PROJECT_GV5.Places
                     { 
                         UsingSuperFruits();                       
                         Console.ForegroundColor = ConsoleColor.Green;
-                        Console.WriteLine("You healed !!  Current HP: " + MainCharacter.hp);
+                        Console.WriteLine("You healed !!  Current HP: " + MainCharacter.hp); Console.WriteLine();
                         Console.ResetColor();
                     }
                    
@@ -85,7 +89,7 @@ namespace FINAL_PROJECT_GV5.Places
                     {
                         Betting();
                         Console.ForegroundColor = ConsoleColor.Yellow;
-                        Console.WriteLine("Total Gold: " + MainCharacter.gold);
+                        Console.WriteLine("Total Gold: " + MainCharacter.gold); Console.WriteLine();
                         Console.ResetColor();
                     }
                     else
@@ -94,6 +98,7 @@ namespace FINAL_PROJECT_GV5.Places
                     }
                     break;
                 case "4":
+                    Console.WriteLine("Current Weapon: " + MainCharacter.Weapon);
                     break;
                 case "refugee":
                     Game.Transition<Refugee>();
@@ -173,6 +178,7 @@ namespace FINAL_PROJECT_GV5.Places
                 Console.Write(goldy);
                 Console.Write(" GOLD");
                 Console.ResetColor();
+                Console.WriteLine();
                 Console.WriteLine("Press [1] to bet or [2] to come back to the Inventory");
                 Console.WriteLine(); 
                 answer = int.Parse(Console.ReadLine());
