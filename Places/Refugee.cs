@@ -36,7 +36,20 @@ write the place where you want to go";
                     Game.Transition<Forest>();
                     break;
                 case "dungeon":
-                    Game.Transition<Dungeon>();
+                    Console.WriteLine("If you join the dungeon, you will NOT be able to leave, are you well equipped ?");
+                    Console.WriteLine("press [1] to join the dungeon or any other key to come back to the refugee");
+                    string rr = Console.ReadLine();
+                    if(rr == "1")
+                    {
+                        Console.Clear();
+                        Game.Transition<Dungeon>();
+                    }
+                    else
+                    {
+                        Console.Clear();
+                        Game.Transition<Refugee>();
+                    }
+                 
                     break;
                 case "blacksmith":
                     Game.Transition<BlackSmith>();
