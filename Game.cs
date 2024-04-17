@@ -18,12 +18,7 @@ namespace OOP_PROJECT
         internal bool IsGameOver() => isFinished;
         public static bool isFinished;
         static string nextPlace = "";
-
-        internal bool Firstskull;
-        internal bool SecondSkull;
-
-        internal bool IsFirstSkullObtained() => Firstskull;
-        internal bool IsSecondSkullObtained() => SecondSkull;
+        public static bool Firstskull;
 
 
 
@@ -71,7 +66,7 @@ namespace OOP_PROJECT
                     break;
                 }
             }
-        }
+        }       
     }
 
 }
