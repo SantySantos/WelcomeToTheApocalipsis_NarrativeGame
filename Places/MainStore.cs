@@ -26,14 +26,34 @@ namespace OOP_PROJECT.Places
             Console.WriteLine("Gold:" + MainCharacter.gold);
             Console.ResetColor();
             return @"STORE
-1. Fruits, regenarates 5 hp - 10 gold
-2. Super fruits, regerates 20 hp - 38 gold
-3. Betting Coins, bet an amount of money, double it or lose it all - 20 gold
+1. Fruits, regenarates 10 hp - 10 gold
+2. Super fruits, regerates 40 hp - 38 gold
+3. Betting Coins, bet an amount of money, double it or lose it all - 10 gold
 4. go back to refugee
 
 
 What option do you pick(write the number)?";
 
+        }
+        public void SucessfulPurchase()
+        {
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Gold:" + MainCharacter.gold);
+            Console.ResetColor();
+            Console.WriteLine("STORE");
+            Console.WriteLine("1. Fruits, regenarates 10 hp - 10 gold ");
+            Console.WriteLine("2. Super fruits, regerates 40 hp - 38 gold");
+            Console.WriteLine("3. Betting Coins, bet an amount of money, double it or lose it all - 10 gold");
+            Console.WriteLine("4. go back to refugee");
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine("What option do you pick(write the number)?");
+            Console.ForegroundColor = ConsoleColor.Green;
+            Console.WriteLine("Sucessful Purchase !!!");
+            Console.ResetColor();
+            Thread.Sleep(1000);
+            Console.Clear();
         }
         public bool GoldReturn(int price)
         {
@@ -59,38 +79,41 @@ What option do you pick(write the number)?";
                     if(GoldReturn(10) == true)
                     {
                         inventory.BuyingFruits();
+                        SucessfulPurchase();
+                        
                     }
                     else if (GoldReturn(10) == false)
                     {
                         Console.WriteLine("You dont have enough Money");
                     }
-                    Console.Clear();
-                    Game.Transition<MainStore>();
+
                     break;
                 case "2":
                     if (GoldReturn(38) == true)
                     {
                         inventory.BuyingSuperFruits();
+                        SucessfulPurchase();
+                       
+                        
                     }
                     else if(GoldReturn(38) == false)
                     {
                         Console.WriteLine("You dont have enough Money");
+                        SucessfulPurchase();
                     }
 
-                    Console.Clear();
-                    Game.Transition<MainStore>();
                     break;
                 case "3":
-                    if (GoldReturn(20) == true)
+                    if (GoldReturn(10) == true)
                     {
                         inventory.BettingCoins();
+                        
                     }
-                    else if (GoldReturn(20) == false)
+                    else if (GoldReturn(10) == false)
                     {
                         Console.WriteLine("You dont have enough Money");
                     }
-                    Console.Clear();
-                    Game.Transition<MainStore>();
+     
                     break;
                 case "4":
                     Console.Clear();
