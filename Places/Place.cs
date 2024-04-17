@@ -8,7 +8,6 @@ namespace OOP_PROJECT.Places
 {
     internal abstract class Place
     {
-
         internal abstract string Description();
         internal abstract void MovingAround(string choice2);
 
