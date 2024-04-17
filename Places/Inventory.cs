@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OOP_PROJECT.Main_Character_Description;
+using FINAL_PROJECT_GV5.Places;
 using System.Threading.Channels;
 using System;
 using System.ComponentModel.Design;
 using System.Transactions;
+using OOP_PROJECT.Main_Character_Description;
 
 namespace FINAL_PROJECT_GV5.Places
 {
@@ -42,33 +43,50 @@ namespace FINAL_PROJECT_GV5.Places
         }
         internal override void MovingAround(string choice2)
         {
+            Characters MainCharacter = Switch.MainCharacter;
             switch (choice2)
             {
                 case "1":
                     if(Fruits > 0)
                     {
                         UsingFruits();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("You healed !!  Current HP: " +  MainCharacter.hp);
+                        Console.ResetColor();
                     }
                     else
                     {
                         Console.WriteLine("You dont have enough Fruits");
                     }
-                    break;
-                    
+                    break;                   
                 case "2":
                     if (SuperFruits > 0)
                     { 
-                        UsingSuperFruits(); 
+                        UsingSuperFruits();                       
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("You healed !!  Current HP: " + MainCharacter.hp);
+                        Console.ResetColor();
                     }
+                   
                     else
                     {
-                        Console.WriteLine("You dont have SuperFruits");
+                        Console.WriteLine("You dont have enough Coins");
                     }
+                    
                     break;
-                case "3":
-                    if(Coins > 0)
+                case "3":                   
+                    if (MainCharacter.gold <= 0)
+                    {
+                        Console.WriteLine("You dont have gold to bet");
+                        Thread.Sleep(1500);
+                        Game.Transition<Inventory>();
+                    }
+                    else if (Coins > 0)
                     {
                         Betting();
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Total Gold: " + MainCharacter.gold);
+                        Console.ResetColor();
                     }
                     else
                     {
@@ -88,20 +106,14 @@ namespace FINAL_PROJECT_GV5.Places
         public double UsingFruits()
         {
             Characters MainCharacter = Switch.MainCharacter;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Current HP: " + MainCharacter.hp );
-            Console.ResetColor();
             Fruits -= 1; 
-            return MainCharacter.hp += 5;
+            return MainCharacter.hp += 10;
         }
         public double UsingSuperFruits() 
         {
             Characters MainCharacter = Switch.MainCharacter;
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Current HP: " + MainCharacter.hp);
-            Console.ResetColor();
             SuperFruits -= 1;
-            return MainCharacter.hp += 38;
+            return MainCharacter.hp += 40;
         }
 
         public double BuyingFruits()
@@ -126,13 +138,10 @@ namespace FINAL_PROJECT_GV5.Places
             Characters MainCharacter = Switch.MainCharacter;
             int goldy;
             int answer;
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Currect gold: " + MainCharacter.gold);
-            Console.ResetColor();
             while (true)
             {
                 Console.ForegroundColor= ConsoleColor.Yellow;
-                Console.WriteLine("Currento Gold: " + MainCharacter.gold);
+                Console.WriteLine("Current Gold: " + MainCharacter.gold);
                 Console.ResetColor();
                 if (MainCharacter.gold <= 0) 
                 {
@@ -168,6 +177,7 @@ namespace FINAL_PROJECT_GV5.Places
                 Console.WriteLine(); 
                 answer = int.Parse(Console.ReadLine());
                 switch (answer)
+
                 {
 
                     case 1:
@@ -181,6 +191,7 @@ namespace FINAL_PROJECT_GV5.Places
                             Console.Clear();
                             Game.Transition<Inventory>();
                             Coins -= 1;
+                            MainCharacter.gold -= goldy;
                             return MainCharacter.gold = MainCharacter.gold + (goldy * 2);
                         }
                         else
