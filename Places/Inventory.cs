@@ -183,7 +183,6 @@ namespace FINAL_PROJECT_GV5.Places
                 Console.WriteLine(); 
                 answer = int.Parse(Console.ReadLine());
                 switch (answer)
-
                 {
 
                     case 1:

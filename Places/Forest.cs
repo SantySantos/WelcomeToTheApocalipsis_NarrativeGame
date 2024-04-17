@@ -48,12 +48,10 @@ constant damage, these are the rules:
 
 1. You will need to pay 20 gold to join the forest
 2. It wil take you 5 seconds without being able to do anything to leave the forest
-3. You might Find SKULLS, it is not easy tho
-4. Press ENTER to start the forest.
-5. Press SPACEBAR to leave the forest.
-6. If you die, game is over.
+3. You might Find a SKULL, it is not easy tho
+4. If you die, game is over.
 
-ENJOY, AND HAVE GOOD TIMING :D
+ENJOY, AND HAVE GOOD TIME :D
 
 HAVE FUN
 
