@@ -15,7 +15,6 @@ namespace OOP_PROJECT.Places
 {   
     internal class Forest : Place
     {
-        private static int count = 0;
         internal override string Description()
         {
             Instructions();
@@ -70,7 +69,7 @@ press any key to continue...");
             while(true) {
                 while (true)
                 {
-                    Console.WriteLine("Please insert how much gold you want to gain, remember, if your Hp is reaches 0 you are going to die");
+                    Console.WriteLine("Please insert how much gold you want to gain, remember, if your Hp reaches 0 you are going to die");
                     string gain = Console.ReadLine();
                     if (int.TryParse(gain, out goldy))
                     {
@@ -80,6 +79,7 @@ press any key to continue...");
                     else
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
+
                         Console.WriteLine("Please type a number");
                         Console.ResetColor();
                     }                   
@@ -127,10 +127,11 @@ press any key to continue...");
                 mainCharacter.gold += 10;
                 mainCharacter.hp -= 1;
 
-                if (random.Next(1, 200) == 25)
+                if (random.Next(1, 250) == 25)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("+1 SKULL");
+                    Game.Firstskull = true;
                     Console.ResetColor();
                 }
                 if (mainCharacter.hp <= 0)
