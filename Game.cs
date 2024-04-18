@@ -15,6 +15,7 @@ namespace OOP_PROJECT
     {
         List<Place> places = new List<Place>();
         Place currentPlace;
+        Place previousPlace;
         internal bool IsGameOver() => isFinished;
         public static bool isFinished;
         static string nextPlace = "";
@@ -55,6 +56,8 @@ namespace OOP_PROJECT
             isFinished = true;
         }
 
+        public void Back() => nextPlace = previousPlace.GetType().Name;
+
         internal void CheckTransition()
         {
             foreach (var place in places)
@@ -63,6 +66,7 @@ namespace OOP_PROJECT
                 {
                     nextPlace = "";
                     currentPlace = place;
+                    previousPlace = place;
                     break;
                 }
             }
