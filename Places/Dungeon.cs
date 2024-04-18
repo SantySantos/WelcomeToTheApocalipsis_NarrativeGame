@@ -1,7 +1,9 @@
-﻿using OOP_PROJECT.Main_Character_Description;
+﻿using FINAL_PROJECT_GV5.Places;
+using OOP_PROJECT.Main_Character_Description;
 using OOP_PROJECT.Story;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
 using System.Text;
@@ -15,6 +17,7 @@ namespace OOP_PROJECT.Places
 {
     internal class Dungeon : Place
     {
+        
         internal override string Description()
         {
       
@@ -74,8 +77,9 @@ namespace OOP_PROJECT.Places
         }
     
        
-        internal void Fight()
+        static void Fight()
         {
+           
             var story = new ContextStory();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             Zarlock zarlock = new Zarlock();
@@ -99,14 +103,10 @@ namespace OOP_PROJECT.Places
                         PlayerAttacks();
                         Thread.Sleep(1000);
                         ZarlocksDamage(); //Zarlock's attack
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Zarlock's hp: " + zarlock.hp);
-                        Console.ResetColor();
+                        
                         break;
                     case "2":
-                        //go to inventory and heal
-                        Thread.Sleep(1000);
-                        ZarlocksDamage(); //Zarlock's attack
+                        PlayerHeals();
                         break;
                     default: 
                         Console.WriteLine("Choose a valid option");
@@ -127,7 +127,7 @@ namespace OOP_PROJECT.Places
                 Game.Finish();
             }            
         }
-        internal double PlayerAttacks()
+        static double PlayerAttacks()
         {
             Zarlock zarlock = new Zarlock();
             BlackSmith weapon = new BlackSmith();
@@ -143,7 +143,7 @@ namespace OOP_PROJECT.Places
             Console.ResetColor();
             return zarlock.hp;
         }
-        internal double ZarlocksDamage()
+        static double ZarlocksDamage()
         {
             Zarlock Zarlock = new Zarlock();
             Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
@@ -155,12 +155,53 @@ namespace OOP_PROJECT.Places
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Currrent HP: " + mainCharacter.hp);
             Console.WriteLine();
-            
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine("Zarlock's hp: " + Zarlock.hp);
+            Console.ResetColor();
             Console.ReadKey();
-            Console.Clear();
-            
+            Console.Clear();           
             return mainCharacter.hp;
 
+        }
+
+       static void PlayerHeals()
+        {
+            
+            var inventory = new Inventory();
+            Console.ForegroundColor= ConsoleColor.Red;
+            Console.WriteLine("FIGHT INVENTORY");
+            Console.ResetColor();
+            Console.WriteLine("Fruits: " + inventory.ShowingFruits());
+            Console.WriteLine("Super Fruits: " + inventory.ShowingSuperFruits());
+            Console.WriteLine();
+            Console.WriteLine("What would u like to use? ");
+            string reply = Console.ReadLine().ToLower() ?? "";
+            while (true)
+            {
+                if(reply == "1")
+                {
+                    inventory.UsingFruits();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You healed: +5 HP");
+                    Console.ResetColor();
+                    break;
+                }
+                else if(reply == "2")
+                {
+                    inventory.UsingSuperFruits();
+                    Console.ForegroundColor = ConsoleColor.Green;
+                    Console.WriteLine("You healed: +38 HP");
+                    Console.ResetColor();
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("Choose a valid option (1 or 2)");
+                }
+
+            }           
+            Thread.Sleep(1000);
+            ZarlocksDamage();
         }
     }
 }

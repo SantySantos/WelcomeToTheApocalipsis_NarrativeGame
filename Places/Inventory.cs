@@ -10,6 +10,7 @@ using System;
 using System.ComponentModel.Design;
 using System.Transactions;
 using OOP_PROJECT.Main_Character_Description;
+using System.Reflection.Metadata.Ecma335;
 
 namespace FINAL_PROJECT_GV5.Places
 {
@@ -108,10 +109,20 @@ namespace FINAL_PROJECT_GV5.Places
                     break;
             }
         }
+        public double ShowingFruits()
+        {
+            return Fruits;
+        }
+        public double ShowingSuperFruits()
+        {
+            return SuperFruits;
+        }
         public double UsingFruits()
         {
+            var game = new Game();
             Characters MainCharacter = Switch.MainCharacter;
-            Fruits -= 1; 
+            Fruits -= 1;
+            
             return MainCharacter.hp += 10;
         }
         public double UsingSuperFruits() 
