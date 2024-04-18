@@ -17,7 +17,7 @@ namespace OOP_PROJECT.Places
 {
     internal class Dungeon : Place
     {
-        
+        public static Zarlock zarlock = new Zarlock();
         internal override string Description()
         {
       
@@ -82,7 +82,7 @@ namespace OOP_PROJECT.Places
            
             var story = new ContextStory();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
-            Zarlock zarlock = new Zarlock();
+            Zarlock zarlock = OOP_PROJECT.Places.Dungeon.zarlock;
             Forest forest = new Forest();
             forest.PrintingWaitingTime();
             while (MainCharacter.hp > 0 && zarlock.hp >0) 
@@ -119,6 +119,7 @@ namespace OOP_PROJECT.Places
                 Console.Clear();
                 story.WarriorLosses();
                 Game.Finish();
+                
             }
             else if(zarlock.hp <= 0)
             {
@@ -129,10 +130,12 @@ namespace OOP_PROJECT.Places
         }
         static double PlayerAttacks()
         {
-            Zarlock zarlock = new Zarlock();
+            Zarlock zarlock = OOP_PROJECT.Places.Dungeon.zarlock;
             BlackSmith weapon = new BlackSmith();
-            Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
+            Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;           
+           
             zarlock.hp -= weapon.WeaponDamage;
+            Console.WriteLine(zarlock.hp);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("YOU HAVE ATTACKED");
             Console.ResetColor();
@@ -145,18 +148,19 @@ namespace OOP_PROJECT.Places
         }
         static double ZarlocksDamage()
         {
-            Zarlock Zarlock = new Zarlock();
+
+            Zarlock zarlock = OOP_PROJECT.Places.Dungeon.zarlock;
             Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
-            mainCharacter.hp -= Zarlock.damage;
+            mainCharacter.hp -= zarlock.damage;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("ZARLOCK HAS ATTACKED");
             Console.ResetColor();
-            Console.WriteLine("Zarclock did " + Zarlock.damage + " damage");
+            Console.WriteLine("Zarclock did " + zarlock.damage + " damage");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Currrent HP: " + mainCharacter.hp);
             Console.WriteLine();
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("Zarlock's hp: " + Zarlock.hp);
+            Console.WriteLine("Zarlock's hp: " + zarlock.hp);
             Console.ResetColor();
             Console.ReadKey();
             Console.Clear();           
@@ -166,49 +170,67 @@ namespace OOP_PROJECT.Places
 
        static void PlayerHeals()
         {
-            
-            var inventory = new Inventory();
-            Console.ForegroundColor= ConsoleColor.Red;
-            Console.WriteLine("FIGHT INVENTORY");
-            Console.ResetColor();
-            Console.WriteLine("Fruits: " + inventory.ShowingFruits());
-            Console.WriteLine("Super Fruits: " + inventory.ShowingSuperFruits());
-            Console.WriteLine();
-            Console.WriteLine("What would u like to use? ");
-            string reply = Console.ReadLine().ToLower() ?? "";
             while (true)
             {
-                if(reply == "1")
+                var inventory = new Inventory();
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("FIGHT INVENTORY");
+                Console.ResetColor();
+                Console.WriteLine("1. Fruits: " + inventory.ShowingFruits());
+                Console.WriteLine("2. Super Fruits: " + inventory.ShowingSuperFruits()); 
+                Console.WriteLine();
+                Console.WriteLine("What would u like to use? ");
+                string reply = Console.ReadLine().ToLower() ?? "";
+                while (true)
                 {
-                    inventory.UsingFruits();
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("You healed: +5 HP");
-                    Console.ResetColor();
-                    break;
-                }
-                else if(reply == "2")
-                {
-                    inventory.UsingSuperFruits();
-                    Console.ForegroundColor = ConsoleColor.Green;
-                    Console.WriteLine("You healed: +38 HP");
-                    Console.ResetColor();
-                    break;
-                }
-                else
-                {
-                    Console.WriteLine("Choose a valid option (1 or 2)");
-                }
+                    if (reply == "1")
+                    {
+                        if(inventory.ShowingFruits() > 0)
+                        {
+                            inventory.UsingFruits();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("You healed: +5 HP");
+                            Console.ResetColor();
+                            break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You dont have more Fruits!");
+                            break;
+                            
+                        }
+                    }
+                    else if (reply == "2")
+                    {
+                        if(inventory.ShowingSuperFruits() > 0)
+                        {
 
-            }           
-            Thread.Sleep(1000);
-            ZarlocksDamage();
+                        inventory.UsingSuperFruits();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("You healed: +38 HP");
+                        Console.ResetColor();
+                        break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You dont have more SuperFruits!");
+                            break;
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine("Choose a valid option (1 or 2)");
+                    }
+
+                }
+                Thread.Sleep(1000);
+                ZarlocksDamage();
+                
+                break;
+            }
+            
         }
     }
 }
 
-public class Zarlock
-{
-    public string Name = "Zarlock";
-    public int hp = 2000;
-    public int damage = 50;
-}
+
