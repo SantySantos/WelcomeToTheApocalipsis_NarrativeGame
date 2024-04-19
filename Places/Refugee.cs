@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace OOP_PROJECT.Places
 {
@@ -12,7 +13,7 @@ namespace OOP_PROJECT.Places
     {
         internal override string Description()
         {
-            Console.WriteLine();
+            Title();
             return @"To the left, a humble [store] offers supplies. 
 To the right a [blacksmith] to get the most powerful weapons.
 Straight ahead, the [forest] whispers secrets. 
@@ -55,6 +56,8 @@ write the place where you want to go";
                     Game.Transition<BlackSmith>();
                     break;
                 case "1":
+                    Console.Clear();
+                    StatsChar();
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine(MainCharacter.Name.ToUpper());
                     Console.ForegroundColor = ConsoleColor.Green;
@@ -64,6 +67,7 @@ write the place where you want to go";
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("WEAPON: " + MainCharacter.Weapon);
                     Console.ResetColor();
+                    Console.WriteLine();
                     break;
                 case "2":
                     Game.Transition<Inventory>();
@@ -73,6 +77,25 @@ write the place where you want to go";
                     Console.WriteLine("that's not a place, try again");
                     break;
             }
+            
+        }
+        internal void Title()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkCyan;
+            Console.WriteLine(">>--------------------------<<");
+            Console.WriteLine("||        The Refugee       ||");
+            Console.WriteLine(">>--------------------------<<");
+            Console.ResetColor();
+            Console.WriteLine();
+        }
+        internal void StatsChar()
+        {
+            Console.ForegroundColor = ConsoleColor.White;
+            Console.WriteLine("████████████████████");
+            Console.WriteLine("█      STATS       █");
+            Console.WriteLine("████████████████████");
+            Console.ResetColor();
+            Console.WriteLine();
         }
     }
 }

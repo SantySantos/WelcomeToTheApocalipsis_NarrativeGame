@@ -2,11 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
-
+using System.Text;
 namespace OOP_PROJECT.Places
 {
     enum Weapons
@@ -22,7 +23,13 @@ namespace OOP_PROJECT.Places
         public int WeaponDamage = 10;
         internal override string Description()
         {
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
 
+            Title();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Gold remaining:" + MainCharacter.gold);
+            Console.ResetColor();
+            Console.WriteLine();
             return @"Ah, welcome, welcome! What brings you to my forge today?
 In need of a repair, or perhaps something new? Whatever it is, you've come to the right place.
 Come, let's have a look and see what we can do for you
@@ -37,6 +44,13 @@ Come, let's have a look and see what we can do for you
 
         internal void SuccessfulPurchase()
         {
+            Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
+
+            Title();
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("Gold remaining:" + MainCharacter.gold);
+            Console.ResetColor();
+            Console.WriteLine();
             Console.WriteLine("Ah, welcome, welcome! What brings you to my forge today?");
             Console.WriteLine("In need of a repair, or perhaps something new? Whatever it is, you've come to the right place.");
             Console.WriteLine("Come, let's have a look and see what we can do for you");
@@ -61,9 +75,7 @@ Come, let's have a look and see what we can do for you
             {
                 MainCharacter.gold -= price;
                 SuccessfulPurchase();
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Gold remaining:" + MainCharacter.gold);
-                Console.ResetColor();
+                
                 return true;
             }
             else
@@ -132,8 +144,9 @@ Come, let's have a look and see what we can do for you
                     }
                     else if (GoldReturn(3000) == false) { Console.WriteLine("You dont have enough gold");
 
-                        MainCharacter.Weapon = MainCharacter.Weapon; }
+                        MainCharacter.Weapon = MainCharacter.Weapon;
                         goto case "6";
+                    }                    
                     break;
                 case "6":
                     Console.Clear();
@@ -148,7 +161,17 @@ Come, let's have a look and see what we can do for you
         {
             return 10;
         }
-
+        internal void Title()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGray;
+            
+            Console.WriteLine("╔═══════════════════════╗   ");
+            Console.WriteLine("║    The Blacksmith     ║   ");
+            Console.WriteLine("╚═══════════════════════╝   ");
+            Console.WriteLine();
+            
+            Console.ResetColor();
+        }
     }
     
 }

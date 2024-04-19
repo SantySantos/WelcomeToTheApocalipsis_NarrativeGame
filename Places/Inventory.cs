@@ -23,10 +23,7 @@ namespace FINAL_PROJECT_GV5.Places
         internal override string Description()
         {
 
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine("INVENTORY");
-            Console.WriteLine();
-            Console.ResetColor();
+            Title();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("ITEMS");
             Console.ResetColor();
@@ -38,11 +35,9 @@ namespace FINAL_PROJECT_GV5.Places
                 Console.WriteLine("4. 1 SKULL");
             }
             Console.WriteLine();
-            Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("What would you like to use?");
             Console.WriteLine();
             Console.WriteLine("Come back to the [refugee]");
-            Console.ResetColor();
 
             return "";
         }
@@ -229,7 +224,16 @@ namespace FINAL_PROJECT_GV5.Places
                         break;
                 }
             }
-           
+          
+        }
+        internal void Title()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkBlue;
+            Console.WriteLine("╭─────────────────╮");
+            Console.WriteLine(" -=[ Inventory ]=- ");
+            Console.WriteLine("╰─────────────────╯");
+            Console.ResetColor();
+            Console.WriteLine();
         }
     }
 }

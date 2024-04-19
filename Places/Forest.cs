@@ -17,6 +17,7 @@ namespace OOP_PROJECT.Places
     {
         internal override string Description()
         {
+            Title();
             Instructions();
             return @"Press 1 to join the forest or 2 to come back to the refugee";
         }
@@ -65,8 +66,10 @@ press any key to continue...");
             Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
             int goldy;
             while(true) {
+                
                 while (true)
                 {
+                    Title();
                     Console.WriteLine("Please insert how much gold you want to gain, remember, if your Hp reaches 0 you are going to die");
                     string gain = Console.ReadLine();
                     if (int.TryParse(gain, out goldy))
@@ -82,6 +85,7 @@ press any key to continue...");
                         Console.ResetColor();
                     }                   
                 }
+                Title();
                 Console.Write("You will collect: ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(goldy);
@@ -112,7 +116,7 @@ press any key to continue...");
             Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
             int WishedGold = askingGold(); 
             mainCharacter.gold -= 20;
-
+            
             for(int i = 0; i < WishedGold; i = i + 10)
             {
                 Console.ForegroundColor = ConsoleColor.Green;
@@ -145,6 +149,7 @@ press any key to continue...");
         }
         internal void PrintingWaitingTime()
         {
+            
             var story = new ContextStory();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;           
             Console.WriteLine("Leaving the forest...");
@@ -164,6 +169,14 @@ press any key to continue...");
             Console.Clear();
             Game.Transition<Refugee>();
         }
-
+        internal void Title()
+        {
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.WriteLine(">>==<<==<<==<<==<<==<<==<<==<<==<<==<<==<<==<<");
+            Console.WriteLine("||            Forest of Whispers            ||");
+            Console.WriteLine(">>==<<==<<==<<==<<==<<==<<==<<==<<==<<==<<==<<");
+            Console.ResetColor();
+            Console.WriteLine();
+        }
     }
 }

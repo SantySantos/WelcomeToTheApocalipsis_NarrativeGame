@@ -20,7 +20,8 @@ namespace OOP_PROJECT.Places
         
         internal override string Description()
         {
-            
+
+            Title();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Gold:" + MainCharacter.gold);
@@ -37,6 +38,7 @@ What option do you pick(write the number)?";
         }
         public void SucessfulPurchase()
         {
+            Title();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Gold:" + MainCharacter.gold);
@@ -125,6 +127,16 @@ What option do you pick(write the number)?";
                     break;
             }
            
+        }
+        internal void Title()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.WriteLine("********************************************");
+            Console.WriteLine("*                 THE STORE                *");
+            Console.WriteLine("********************************************");
+            Console.ResetColor(); 
+            Console.WriteLine();
+
         }
     }
 }
