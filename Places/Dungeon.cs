@@ -218,7 +218,8 @@ namespace OOP_PROJECT.Places
                     }
                     else
                     {
-                        Console.WriteLine("Choose a valid option (1 or 2)");
+                        Console.WriteLine("Choose a valid option (1 or 2) next time :) ");
+                        break;
                     }
 
                 }

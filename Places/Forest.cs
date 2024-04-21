@@ -101,12 +101,12 @@ press any key to continue...");
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("REMINDER: YOU ALSO WILL NEED TO PAY 20 GOLD AND WAIT 5 SECS TO LEAVE THE FOREST");
                 Console.ResetColor();
-                int answer = int.Parse(Console.ReadLine());
-                if (answer == 1)
+                string answer = Console.ReadLine().ToLower() ?? "";
+                if (answer == "1")
                 {
                     return goldy;
                 }
-                else { continue; }              
+                           
             }
         }
 

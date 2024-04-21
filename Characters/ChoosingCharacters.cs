@@ -20,7 +20,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Kairos.hp = 500;
             Kairos.gold = 1000;
             Kairos.Weapon = "Sword (200 damage)";
-            Kairos.damage = 10;
+            Kairos.damage = 200;
 
             return Kairos;
         }
@@ -32,7 +32,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Aria.hp = 200;
             Aria.gold = 500;
             Aria.Weapon = "Arch (100 damage)";
-            Aria.damage = 10;
+            Aria.damage = 100;
 
             return Aria;
         }
@@ -43,8 +43,8 @@ namespace OOP_PROJECT.Main_Character_Description
             Nova.Name = "Nova";
             Nova.hp = 40;
             Nova.gold = 100;
-            Nova.damage = 10; 
             Nova.Weapon = "Axe (20 damage)";
+            Nova.damage = 20; 
 
             return Nova;
         }
