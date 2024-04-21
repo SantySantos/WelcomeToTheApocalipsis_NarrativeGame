@@ -20,11 +20,10 @@ namespace OOP_PROJECT.Places
     }
     internal class BlackSmith : Place
     {
-        public int WeaponDamage = 10;
         internal override string Description()
         {
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;
-
+            
             Title();
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Gold remaining:" + MainCharacter.gold);
@@ -95,7 +94,7 @@ Come, let's have a look and see what we can do for you
                     if (GoldReturn(5) == true)
                     {                       
                         MainCharacter.Weapon = Weapons.RustedMachete.ToString();
-                        WeaponDamage = (int)Weapons.RustedMachete;
+                        MainCharacter.damage = (int)Weapons.RustedMachete;
                     }
                     else if (GoldReturn(5) == false) { Console.WriteLine("You dont have enough gold");
                         MainCharacter.Weapon = MainCharacter.Weapon; }
@@ -104,7 +103,7 @@ Come, let's have a look and see what we can do for you
                     if (GoldReturn(1500) == true)
                     {                       
                         MainCharacter.Weapon = Weapons.PlasmaRepeater.ToString();
-                        WeaponDamage = (int)Weapons.PlasmaRepeater;
+                        MainCharacter.damage = (int)Weapons.PlasmaRepeater;
                     }
                     else if(GoldReturn(1500) == false) { Console.WriteLine("You dont have enough gold");
                         MainCharacter.Weapon = MainCharacter.Weapon; }
@@ -113,7 +112,7 @@ Come, let's have a look and see what we can do for you
                     if (GoldReturn(3000) == true)
                     {                       
                         MainCharacter.Weapon = Weapons.ElectroKatana.ToString();
-                        WeaponDamage = (int)Weapons.ElectroKatana;
+                        MainCharacter.damage = (int)Weapons.ElectroKatana;
                     }
                     else if (GoldReturn(3000) == false) { Console.WriteLine("You dont have enough gold");
                         MainCharacter.Weapon = MainCharacter.Weapon;
@@ -125,7 +124,7 @@ Come, let's have a look and see what we can do for you
                     {
 
                         MainCharacter.Weapon = Weapons.EPRK.ToString();
-                        WeaponDamage = (int)Weapons.EPRK;
+                        MainCharacter.damage = (int)Weapons.EPRK;
                         SuccessfulPurchase();
 
                     }
@@ -140,7 +139,7 @@ Come, let's have a look and see what we can do for you
                     if (GoldReturn(100000) == true)
                     {
                         MainCharacter.Weapon = Weapons.InterstellarHypernovaCosmicDevastatorOfUniversalDestruction.ToString();
-                        WeaponDamage = (int)Weapons.InterstellarHypernovaCosmicDevastatorOfUniversalDestruction;
+                        MainCharacter.damage = (int)Weapons.InterstellarHypernovaCosmicDevastatorOfUniversalDestruction;
                     }
                     else if (GoldReturn(3000) == false) { Console.WriteLine("You dont have enough gold");
 
@@ -172,6 +171,7 @@ Come, let's have a look and see what we can do for you
             
             Console.ResetColor();
         }
+
     }
     
 }

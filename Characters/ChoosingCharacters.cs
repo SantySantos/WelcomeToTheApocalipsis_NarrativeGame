@@ -17,9 +17,10 @@ namespace OOP_PROJECT.Main_Character_Description
         {
             MaleCharacters Kairos = new MaleCharacters();
             Kairos.Name = "Kairos";
-            Kairos.hp = 120;
-            Kairos.gold = 100;
+            Kairos.hp = 500;
+            Kairos.gold = 1000;
             Kairos.Weapon = "Axe (10 damage)";
+            Kairos.damage = 10;
 
             return Kairos;
         }
@@ -28,21 +29,33 @@ namespace OOP_PROJECT.Main_Character_Description
         {
             FemaleCharacters Aria = new FemaleCharacters();
             Aria.Name = "Aria";
-            Aria.hp = 100;
-            Aria.gold = 120;
+            Aria.hp = 200;
+            Aria.gold = 500;
             Aria.Weapon = "Axe (10 damage)";
+            Aria.damage = 10;
 
             return Aria;
         }
 
+        public ThirdCharacter Third()
+        {
+            ThirdCharacter Nova = new ThirdCharacter();
+            Nova.Name = "Nova";
+            Nova.hp = 40;
+            Nova.gold = 100;
+            Nova.damage = 10;
+            Nova.Weapon = "Axe (10 damage)";
 
+            return Nova;
+        }
         public void CharacterDescription()
         {
             Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(@"Please choose your character
 [A] See characteristics
 [B] select Kairos
-[C] Select Aira");
+[C] Select Aira
+[D] Select Nova");
 
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine();

@@ -130,21 +130,20 @@ namespace OOP_PROJECT.Places
         }
         static double PlayerAttacks()
         {
-            Zarlock zarlock = OOP_PROJECT.Places.Dungeon.zarlock;
-            BlackSmith weapon = new BlackSmith();
-            Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;           
+            Zarlock zarlock = OOP_PROJECT.Places.Dungeon.zarlock; 
+            Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
            
-            zarlock.hp -= weapon.WeaponDamage;
+            zarlock.hp -= mainCharacter.damage;
             Console.WriteLine(zarlock.hp);
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("YOU HAVE ATTACKED");
             Console.ResetColor();
-            Console.WriteLine("You did " + weapon.WeaponDamage + " damage");
+            Console.WriteLine("You did " + mainCharacter.damage + " damage");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Currrent HP: " + mainCharacter.hp);
             Console.WriteLine();
             Console.ResetColor();
-            return zarlock.hp;
+            return zarlock.hp; 
         }
         static double ZarlocksDamage()
         {

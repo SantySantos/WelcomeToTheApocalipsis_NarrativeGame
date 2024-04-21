@@ -13,6 +13,7 @@ namespace OOP_PROJECT.Main_Character_Description
         public virtual double hp { get; set; }
         public virtual int gold { get; set; }
         public virtual string Weapon {  get; set; }
+        public virtual int damage { get; set; } = 10;
 
     }
     internal class Zarlock
@@ -21,4 +22,5 @@ namespace OOP_PROJECT.Main_Character_Description
         public int hp { get; set; } = 2000;
         public int damage = 50;
     }
+   
 }

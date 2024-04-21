@@ -125,7 +125,7 @@ press any key to continue...");
                 Console.Write("Current Gold: " + mainCharacter.gold);
                 Console.WriteLine();
                 Console.ResetColor();
-                Thread.Sleep(600);
+                Thread.Sleep(300);
                 mainCharacter.gold += 10;
                 mainCharacter.hp -= 1;
 

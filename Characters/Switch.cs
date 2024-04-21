@@ -24,7 +24,7 @@ namespace OOP_PROJECT.Main_Character_Description
 
             MaleCharacters characterMale = new MaleCharacters();
             FemaleCharacters characterFemale = new FemaleCharacters();
-
+            ThirdCharacter thirdCharacter = new ThirdCharacter();
 
             ChoosingCharacter characterChosen = new ChoosingCharacter();
 
@@ -34,6 +34,7 @@ namespace OOP_PROJECT.Main_Character_Description
                     characterMale.GeneralMaleDescription();
                     Console.ResetColor();
                     characterFemale.GeneralFemaleDescription();
+                    thirdCharacter.generalThirdCharacterDescription();
                     Console.ReadKey();
                     Console.Clear();
                     break;
@@ -47,6 +48,13 @@ namespace OOP_PROJECT.Main_Character_Description
                 case "c":
                     MainCharacter = characterChosen.Woman();
                     characterFemale.GeneralFemaleDescription();
+                    Console.ReadKey();
+                    Console.Clear();
+                    ChooseTrue();
+                    break;
+                case "d":
+                    MainCharacter = characterChosen.Third();
+                    thirdCharacter.generalThirdCharacterDescription();
                     Console.ReadKey();
                     Console.Clear();
                     ChooseTrue();
