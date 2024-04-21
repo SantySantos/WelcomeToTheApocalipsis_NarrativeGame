@@ -19,7 +19,7 @@ namespace OOP_PROJECT
         internal bool IsGameOver() => isFinished;
         public static bool isFinished;
         static string nextPlace = "";
-        public static bool Firstskull = true;
+        public static bool Firstskull;
 
 
 

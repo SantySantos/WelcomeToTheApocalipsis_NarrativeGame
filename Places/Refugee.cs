@@ -66,7 +66,6 @@ write the place where you want to go";
                     Console.WriteLine("GOLD: " + MainCharacter.gold);
                     Console.ForegroundColor = ConsoleColor.Blue;
                     Console.WriteLine("WEAPON: " + MainCharacter.Weapon);
-                    Console.WriteLine("WEAPON DAMAGE: " + MainCharacter.damage);
                     Console.ResetColor();
                     Console.WriteLine();
                     break;

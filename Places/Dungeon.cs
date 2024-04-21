@@ -176,7 +176,8 @@ namespace OOP_PROJECT.Places
                 Console.WriteLine("FIGHT INVENTORY");
                 Console.ResetColor();
                 Console.WriteLine("1. Fruits: " + inventory.ShowingFruits());
-                Console.WriteLine("2. Super Fruits: " + inventory.ShowingSuperFruits()); 
+                Console.WriteLine("2. Super Fruits: " + inventory.ShowingSuperFruits());
+                Console.WriteLine("3. Mega Fruits: " + inventory.ShowingMegaFruits());
                 Console.WriteLine();
                 Console.WriteLine("What would u like to use? ");
                 string reply = Console.ReadLine().ToLower() ?? "";
@@ -186,7 +187,7 @@ namespace OOP_PROJECT.Places
                     {
                         if(inventory.ShowingFruits() > 0)
                         {
-                            inventory.UsingFruits();
+                            inventory.UsingFruits();                           
                             Console.ForegroundColor = ConsoleColor.Green;
                             Console.WriteLine("You healed: +5 HP");
                             Console.ResetColor();
@@ -209,6 +210,23 @@ namespace OOP_PROJECT.Places
                         Console.WriteLine("You healed: +38 HP");
                         Console.ResetColor();
                         break;
+                        }
+                        else
+                        {
+                            Console.WriteLine("You dont have more SuperFruits!");
+                            break;
+                        }
+                    }
+                    else if(reply == "3")
+                    {
+                        if (inventory.ShowingSuperFruits() > 0)
+                        {
+
+                            inventory.UsingMegaFruits();
+                            Console.ForegroundColor = ConsoleColor.Green;
+                            Console.WriteLine("You healed: +100 HP");
+                            Console.ResetColor();
+                            break;
                         }
                         else
                         {

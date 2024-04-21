@@ -29,8 +29,9 @@ namespace OOP_PROJECT.Places
             return @"STORE
 1. Fruits, regenarates 10 hp - 10 gold
 2. Super fruits, regerates 40 hp - 38 gold
-3. Betting Coins, bet an amount of money, double it or lose it all - 10 gold
-4. go back to refugee
+3. Mega fruits, regenerates 100 hp - 60- gold
+4. Betting Coins, bet an amount of money, double it or lose it all - 10 gold
+5. go back to refugee
 
 
 What option do you pick(write the number)?";
@@ -45,9 +46,10 @@ What option do you pick(write the number)?";
             Console.ResetColor();
             Console.WriteLine("STORE");
             Console.WriteLine("1. Fruits, regenarates 10 hp - 10 gold ");
-            Console.WriteLine("2. Super fruits, regerates 40 hp - 38 gold");
-            Console.WriteLine("3. Betting Coins, bet an amount of money, double it or lose it all - 10 gold");
-            Console.WriteLine("4. go back to refugee");
+            Console.WriteLine("2. Super fruits, regenerates 50 hp - 38 gold");
+            Console.WriteLine("3. Mega fruits, regenerates 100 hp - 60- gold");
+            Console.WriteLine("4. Betting Coins, bet an amount of money, double it or lose it all - 10 gold");
+            Console.WriteLine("5. go back to refugee");
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("What option do you pick(write the number)?");
@@ -106,22 +108,34 @@ What option do you pick(write the number)?";
 
                     break;
                 case "3":
+                    if (GoldReturn(60) == true)
+                    {
+                        inventory.BuyingMegaFruits();
+
+                    }
+                    else if (GoldReturn(38) == false)
+                    {
+                        Console.WriteLine("You dont have enough Money");
+
+                    }
+
+
+                    break;
+                case "4":
                     if (GoldReturn(10) == true)
                     {
                         inventory.BettingCoins();
-                        
+
                     }
                     else if (GoldReturn(10) == false)
                     {
                         Console.WriteLine("You dont have enough Money");
                     }
-     
                     break;
-                case "4":
+                case "5":
                     Console.Clear();
                     Game.Transition<Refugee>();
                     break;
-
                 default:
                     Console.WriteLine("Choose a valid option");
                     break;

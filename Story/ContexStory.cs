@@ -75,7 +75,7 @@ Open your eyes... Wake up...");
         }
         public void WarriorWins()
         {
-            Console.WriteLine("fter a fierce battle, the warrior defeats Zarlock, the enemy boss, securing humanity's future.");
+            Console.WriteLine("After a fierce battle, the warrior defeats Zarlock, the enemy boss, securing humanity's future.");
             Console.WriteLine("In the aftermath, the warrior gets the fabled Crystals of Age,");
             Console.WriteLine("with Zarlock vanquished and the Crystals in hand, peace returns, and a new era dawns ");
             Console.WriteLine("thanks to the warrior's courage and skill.");

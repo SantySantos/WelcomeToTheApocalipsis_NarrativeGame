@@ -19,17 +19,18 @@ namespace FINAL_PROJECT_GV5.Places
         static double Fruits = 0;
         static double SuperFruits = 0;
         static int Coins = 0;
+        static double MegaFruits = 0;
 
         internal override string Description()
         {
-
             Title();
             Console.ForegroundColor = ConsoleColor.Cyan;
             Console.WriteLine("ITEMS");
             Console.ResetColor();
             Console.WriteLine("1. Fruits: " + Fruits);
             Console.WriteLine("2. Super Fruits: " + SuperFruits);
-            Console.WriteLine("3. Coins: " + Coins);    
+            Console.WriteLine("3. Mega Fruits: " + MegaFruits);
+            Console.WriteLine("4. Coins: " + Coins);    
             if(Game.Firstskull == true)
             {
                 Console.WriteLine("4. 1 SKULL");
@@ -74,7 +75,21 @@ namespace FINAL_PROJECT_GV5.Places
                     }
                     
                     break;
-                case "3":                   
+                case "3":
+                    if (MegaFruits > 0)
+                    {
+                        UsingMegaFruits();
+                        Console.ForegroundColor = ConsoleColor.Green;
+                        Console.WriteLine("You healed !!  Current HP: " + MainCharacter.hp); Console.WriteLine();
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.WriteLine("You dont have enough Coins");
+                    }
+
+                    break;
+                case "4":
                     if (MainCharacter.gold <= 0)
                     {
                         Console.WriteLine("You dont have gold to bet");
@@ -93,9 +108,6 @@ namespace FINAL_PROJECT_GV5.Places
                         Console.WriteLine("You dont have enough Coins");
                     }
                     break;
-                case "4":
-                    Console.WriteLine("Current Weapon: " + MainCharacter.Weapon);
-                    break;
                 case "refugee":
                     Game.Transition<Refugee>();
                     break;
@@ -112,6 +124,10 @@ namespace FINAL_PROJECT_GV5.Places
         {
             return SuperFruits;
         }
+        public double ShowingMegaFruits()
+        {
+            return MegaFruits;
+        }
         public double UsingFruits()
         {
             var game = new Game();
@@ -124,13 +140,23 @@ namespace FINAL_PROJECT_GV5.Places
         {
             Characters MainCharacter = Switch.MainCharacter;
             SuperFruits -= 1;
-            return MainCharacter.hp += 40;
+            return MainCharacter.hp += 50;
         }
-
+        public double UsingMegaFruits()
+        {
+            Characters MainCharacter = Switch.MainCharacter;
+            MegaFruits -= 1;
+            return MainCharacter.hp += 100;
+        }
         public double BuyingFruits()
         {
             Fruits += 1;
             return Fruits;
+        }
+        public double BuyingMegaFruits()
+        {
+            MegaFruits += 1;
+            return MegaFruits;
         }
 
         public double BuyingSuperFruits()
