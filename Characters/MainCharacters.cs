@@ -14,7 +14,7 @@ namespace OOP_PROJECT.Main_Character_Description
         public override double hp { get; set; }
         public override int gold { get; set; }
         public override string Weapon { get; set; }
-        public override int damage { get; set; } = 10;
+        public override int damage { get; set; } = 200;
         public void GeneralMaleDescription()
         {
             Console.WriteLine();
@@ -23,7 +23,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Console.WriteLine($"Hello, I am Kairos (Easy)");
             Console.WriteLine($"HP: 500");
             Console.WriteLine($"Gold : 1000");
-            Console.WriteLine($"Weapon : Axe (10 damage)");
+            Console.WriteLine($"Weapon : Sword (200 damage)");
         }
     }
     internal class FemaleCharacters : Characters
@@ -32,8 +32,7 @@ namespace OOP_PROJECT.Main_Character_Description
         public override double hp { get; set; }
         public override int gold { get; set; }
         public override string  Weapon {get; set; }
-
-        public override int damage { get; set; } = 10;
+        public override int damage { get; set; } = 100;
         public void GeneralFemaleDescription()
         {
             Console.WriteLine();
@@ -42,7 +41,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Console.WriteLine($"Hello, I am Aria (Medium)");
             Console.WriteLine($"HP: 200");
             Console.WriteLine($"Gold : 500");
-            Console.WriteLine($"Weapon : Axe (10 damage)");
+            Console.WriteLine($"Weapon : Arch (100 damage)");
 
         }
 
