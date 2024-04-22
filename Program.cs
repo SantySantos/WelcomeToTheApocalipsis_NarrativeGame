@@ -11,7 +11,6 @@ using FINAL_PROJECT_GV5.Places;
 
 internal class program
 {
-
     static void Main(string[] args)
     {
         Characters MainCharacter = OOP_PROJECT.Main_Character_Description.Switch.MainCharacter;
@@ -54,6 +53,6 @@ internal class program
         Thread.Sleep(5000);
         Console.ResetColor();
         Console.Clear();
-        Console.WriteLine("By: Santiago Santos");
+        Console.WriteLine("By Santiago Santos");
     }
 }

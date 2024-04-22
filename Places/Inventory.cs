@@ -205,6 +205,16 @@ namespace FINAL_PROJECT_GV5.Places
                         Console.ResetColor();
                     }
                 }
+                if(goldy > MainCharacter.gold)
+                {
+                    Console.WriteLine("You can't bet more than what you have");
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to continue");
+                    Console.ReadKey();
+                    Console.Clear();
+                    Game.Transition<Inventory>();
+                    return 0;
+                }
                 Console.Write("You will bet: ");
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write(goldy);
