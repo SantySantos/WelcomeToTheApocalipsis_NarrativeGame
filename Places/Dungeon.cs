@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Channels;
 using System.Threading.Tasks;
@@ -147,14 +148,17 @@ namespace OOP_PROJECT.Places
         }
         static double ZarlocksDamage()
         {
-
+            int[] damage = new int[] { 0, 50, 80, 120 };
+            Random attack = new Random();
+            int damageChosen = attack.Next(0, damage.Length);
+            int damageReleased = damage[damageChosen];
             Zarlock zarlock = OOP_PROJECT.Places.Dungeon.zarlock;
             Characters mainCharacter = Main_Character_Description.Switch.MainCharacter;
-            mainCharacter.hp -= zarlock.damage;
+            mainCharacter.hp -= damageReleased;
             Console.ForegroundColor = ConsoleColor.Red;
             Console.WriteLine("ZARLOCK HAS ATTACKED");
             Console.ResetColor();
-            Console.WriteLine("Zarclock did " + zarlock.damage + " damage");
+            Console.WriteLine("Zarclock did " + damageReleased + " damage");
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine("Currrent HP: " + mainCharacter.hp);
             Console.WriteLine();
