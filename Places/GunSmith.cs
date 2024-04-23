@@ -94,7 +94,9 @@ Come, let's have a look and see what we can do for you
                     if (GoldReturn(5) == true)
                     {                       
                         MainCharacter.Weapon = Weapons.RustedMachete.ToString();
+                       
                         MainCharacter.damage = (int)Weapons.RustedMachete;
+                        //Game.SaveGame();
                     }
                     else if (GoldReturn(5) == false) { Console.WriteLine("You dont have enough gold");
                         MainCharacter.Weapon = MainCharacter.Weapon; }
@@ -104,6 +106,7 @@ Come, let's have a look and see what we can do for you
                     {                       
                         MainCharacter.Weapon = Weapons.PlasmaRepeater.ToString();
                         MainCharacter.damage = (int)Weapons.PlasmaRepeater;
+                        //Game.SaveGame();
                     }
                     else if(GoldReturn(1500) == false) { Console.WriteLine("You dont have enough gold");
                         MainCharacter.Weapon = MainCharacter.Weapon; }
@@ -113,6 +116,7 @@ Come, let's have a look and see what we can do for you
                     {                       
                         MainCharacter.Weapon = Weapons.ElectroKatana.ToString();
                         MainCharacter.damage = (int)Weapons.ElectroKatana;
+                        //Game.SaveGame();
                     }
                     else if (GoldReturn(3000) == false) { Console.WriteLine("You dont have enough gold");
                         MainCharacter.Weapon = MainCharacter.Weapon;
@@ -126,6 +130,7 @@ Come, let's have a look and see what we can do for you
                         MainCharacter.Weapon = Weapons.EPRK.ToString();
                         MainCharacter.damage = (int)Weapons.EPRK;
                         SuccessfulPurchase();
+                        //Game.SaveGame();
 
                     }
                     else
@@ -140,6 +145,7 @@ Come, let's have a look and see what we can do for you
                     {
                         MainCharacter.Weapon = Weapons.InterstellarHypernovaCosmicDevastatorOfUniversalDestruction.ToString();
                         MainCharacter.damage = (int)Weapons.InterstellarHypernovaCosmicDevastatorOfUniversalDestruction;
+                        //Game.SaveGame();
                     }
                     else if (GoldReturn(3000) == false) { Console.WriteLine("You dont have enough gold");
 
@@ -155,10 +161,6 @@ Come, let's have a look and see what we can do for you
                     Console.WriteLine("Choose a valid option");
                     break;
             }
-        }
-        public virtual double Axe()
-        {
-            return 10;
         }
         internal void Title()
         {

@@ -129,7 +129,7 @@ press any key to continue...");
                 mainCharacter.gold += 10;
                 mainCharacter.hp -= 1;
 
-                if (random.Next(1, 250) == 25)
+                if (random.Next(1, 50) == 25)
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("+1 SKULL");
@@ -148,8 +148,7 @@ press any key to continue...");
             return mainCharacter.gold;
         }
         internal void PrintingWaitingTime()
-        {
-            
+        {            
             var story = new ContextStory();
             Characters MainCharacter = Main_Character_Description.Switch.MainCharacter;           
             Console.WriteLine("Leaving the forest...");
@@ -161,6 +160,7 @@ press any key to continue...");
                 {
                     Console.Clear();
                     story.WarriorLosses();
+                    //Game.ResetGame();
                     Game.Finish();
                     break;
                 }

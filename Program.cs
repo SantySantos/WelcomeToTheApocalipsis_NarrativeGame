@@ -13,6 +13,12 @@ internal class program
 {
     static void Main(string[] args)
     {
+        //if (!File.Exists("saveInformation.txt"))
+        //{
+        //    Game.SaveGame();
+        //}
+        //Game.LoadGame();
+
         Characters MainCharacter = OOP_PROJECT.Main_Character_Description.Switch.MainCharacter;
 
         var game = new Game();

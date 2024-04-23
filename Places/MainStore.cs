@@ -96,8 +96,7 @@ What option do you pick(write the number)?";
                     if (GoldReturn(38) == true)
                     {
                         inventory.BuyingSuperFruits();
-                       
-                       
+                                            
                         
                     }
                     else if(GoldReturn(38) == false)

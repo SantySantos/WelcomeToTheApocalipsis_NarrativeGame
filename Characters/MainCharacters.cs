@@ -24,6 +24,7 @@ namespace OOP_PROJECT.Main_Character_Description
             Console.WriteLine($"HP: 500");
             Console.WriteLine($"Gold : 1000");
             Console.WriteLine($"Weapon : Sword (200 damage)");
+
         }
     }
     internal class FemaleCharacters : Characters

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Diagnostics.Contracts;
 using System.Linq;
 using System.Text;
@@ -11,10 +12,9 @@ namespace OOP_PROJECT.Main_Character_Description
     {
         public virtual string Name { get; set; }
         public virtual double hp { get; set; }
-        public virtual int gold { get; set; }
+        public  virtual int gold { get; set; }
         public virtual string Weapon {  get; set; }
-        public virtual int damage { get; set; } = 10;
-
+        public virtual int damage { get; set; }
     }
     internal class Zarlock
     {

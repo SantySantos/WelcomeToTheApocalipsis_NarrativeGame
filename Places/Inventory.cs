@@ -16,10 +16,10 @@ namespace FINAL_PROJECT_GV5.Places
 {
     internal class Inventory : Place
     {
-        static double Fruits = 0;
-        static double SuperFruits = 0;
-        static int Coins = 0;
-        static double MegaFruits = 0;
+        public static double Fruits = 0;
+        public static double SuperFruits = 0;
+        public static int Coins = 0;
+        public static double MegaFruits = 0;
 
         internal override string Description()
         {
@@ -33,7 +33,7 @@ namespace FINAL_PROJECT_GV5.Places
             Console.WriteLine("4. Coins: " + Coins);    
             if(Game.Firstskull == true)
             {
-                Console.WriteLine("4. 1 SKULL");
+                Console.WriteLine("5. 1 SKULL");
             }
             Console.WriteLine();
             Console.WriteLine("What would you like to use?");
@@ -133,40 +133,46 @@ namespace FINAL_PROJECT_GV5.Places
             var game = new Game();
             Characters MainCharacter = Switch.MainCharacter;
             Fruits -= 1;
-            
+            //Game.SaveGame();
             return MainCharacter.hp += 10;
         }
         public double UsingSuperFruits() 
         {
             Characters MainCharacter = Switch.MainCharacter;
             SuperFruits -= 1;
+            //Game.SaveGame();
             return MainCharacter.hp += 50;
         }
         public double UsingMegaFruits()
         {
             Characters MainCharacter = Switch.MainCharacter;
             MegaFruits -= 1;
+            //Game.SaveGame();
             return MainCharacter.hp += 100;
         }
         public double BuyingFruits()
         {
             Fruits += 1;
+            //Game.SaveGame();
             return Fruits;
         }
         public double BuyingMegaFruits()
         {
             MegaFruits += 1;
+            //Game.SaveGame();
             return MegaFruits;
         }
 
         public double BuyingSuperFruits()
         {
             SuperFruits += 1;
+            //Game.SaveGame();
             return SuperFruits;
         }
         public double BettingCoins()
         {
             Coins += 1;
+            //Game.SaveGame();
             return Coins;
         }
 
@@ -213,6 +219,7 @@ namespace FINAL_PROJECT_GV5.Places
                     Console.ReadKey();
                     Console.Clear();
                     Game.Transition<Inventory>();
+                    //Game.SaveGame();
                     return 0;
                 }
                 Console.Write("You will bet: ");
@@ -239,6 +246,7 @@ namespace FINAL_PROJECT_GV5.Places
                             Game.Transition<Inventory>();
                             Coins -= 1;
                             MainCharacter.gold -= goldy;
+                            //Game.SaveGame();
                             return MainCharacter.gold = MainCharacter.gold + (goldy * 2);
                         }
                         else
@@ -250,6 +258,7 @@ namespace FINAL_PROJECT_GV5.Places
                             Console.Clear();
                             Game.Transition<Inventory>();
                             Coins -= 1;
+                            //Game.SaveGame();
                             return MainCharacter.gold = MainCharacter.gold - goldy;
                         }
                     case 2:

@@ -119,6 +119,7 @@ namespace OOP_PROJECT.Places
             {
                 Console.Clear();
                 story.WarriorLosses();
+                //Game.ResetGame();
                 Game.Finish();
                 
             }
@@ -126,6 +127,7 @@ namespace OOP_PROJECT.Places
             {
                 Console.Clear();
                 story.WarriorWins();
+                //Game.ResetGame();
                 Game.Finish();
             }            
         }
@@ -223,7 +225,7 @@ namespace OOP_PROJECT.Places
                     }
                     else if(reply == "3")
                     {
-                        if (inventory.ShowingSuperFruits() > 0)
+                        if (inventory.ShowingMegaFruits() > 0)
                         {
 
                             inventory.UsingMegaFruits();
