@@ -18,10 +18,10 @@ This project aim to build strong OOP principles.
 - **Language:** C#.
 
 ### How to Play:
-1. Dowloading this project files from this repository.
+1. Dowloading the project files from this repository.
 2. Running it in your preferable IDE. Example: VSCode, Visual Studio Community, Jetbrains Rider, etc... 
 3. Compile and run the project to start the game.
 
 ### Notes:
 - This project was a solo project.
-- Fell free to modify and explore the code as wished. 
+- Feel free to modify and explore the code as wished. 
