@@ -10,6 +10,7 @@ This project aim to build strong OOP principles.
 #### 🔧Features:
 - Comprehensive use of OOP principles (Encapsulation, Inheritance, Polymorphism, Abstraction).
 - Integration of timers for gameplay mechanics.
+- Efficient error handling. 
 - Easily modifiable features, allowing you to add, change, or implement new mechanics with minimal effort.
 - Difficulty selection at the start of the game (Easy, Medium, Hard).
   
